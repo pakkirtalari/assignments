@@ -2,8 +2,8 @@
 
 
 
-Python while Loop:-
-    1. In programming, loops are used to repeat a block of code. For example, if we want to show a message 100 times, then we can use a loop. Python while loop is used to run a block code until a certain condition is met.A while loop evaluates the condition. If the condition evaluates to True, the code inside the while loop is executed.
+5. Python while Loop:-
+    In programming, loops are used to repeat a block of code. For example, if we want to show a message 100 times, then we can use a loop. Python while loop is used to run a block code until a certain condition is met.A while loop evaluates the condition. If the condition evaluates to True, the code inside the while loop is executed.
     condition is evaluated again. This process continues until the condition is False. When condition evaluates to False, the loop stops.
     ## program to display numbers from 1 to 5
     # initialize the variable
