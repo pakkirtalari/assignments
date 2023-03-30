@@ -1,0 +1,105 @@
+1. Characteristics of Tuple in Python:-
+  Tuple() Python refers to one of the four built-in data types in Python that are used to store collections of objects separated by commas within a single variable. 
+  Characteristics of Tuples
+    They are indexed
+    Tuples are ordered
+    These are immutable
+    They can contain duplicate items
+  The important difference is that tuples are immutable. Tuples are also comparable and hashable so we can sort lists of them and use tuples as key values in Python dictionaries.
+
+2. Tuple Methods in Python:-
+  Python has two built-in methods that you can use on tuples.
+  a) count() - Returns the number of times a specified value occurs in a tuple
+     Ex:- 
+      Tuple1 = (0, 1, 2, 3, 2, 3, 1, 3, 2)
+      Tuple2 = ('python', 'geek', 'python', 
+                'for', 'java', 'python')
+
+      # count the appearance of 3
+      res = Tuple1.count(3)
+      print('Count of 3 in Tuple1 is:', res)
+
+      # count the appearance of python
+      res = Tuple2.count('python')
+      print('Count of Python in Tuple2 is:', res)
+      
+  b) index() - Searches the tuple for a specified value and returns the position of where it was found
+    Ex:- 
+      Tuple = (0, 1, 2, 3, 2, 3, 1, 3, 2)
+
+      # getting the index of 3
+      res = Tuple.index(3)
+      print('First occurrence of 3 is', res)
+
+      # getting the index of 3 after 4th
+      # index
+      res = Tuple.index(3, 4)
+      print('First occurrence of 3 after 4th index is:', res)
+  The primary difference between tuples and lists is that tuples are immutable as opposed to lists which are mutable. 
+  Therefore, it is possible to change a list but not a tuple. The contents of a tuple cannot change once they have been created in Python due to the immutability of tuples.
+  The length of tuples is also fixed. They remain the same length throughout the lifecycle of the program. So, we have only count and index built-in functions in tuple.
+
+3. Set in Python:-
+  Python sets cannot have a duplicate value and once it is created we cannot change its value.
+  a) list_given = [1, 1, 1, 2, 1, 3, 1, 4, 2, 1, 2, 2, 2, 3, 2, 4, 3, 1, 3, 2, 3, 3, 3, 4, 4, 1, 4, 2, 4, 3, 4, 4]
+     result_set = set(list_given)
+     
+4. Union and Update in Set:-
+  s.union(t)  s | t   new set with elements from both s and t
+  s.update(t) s |= t  return set s with elements added from t
+  s = {1,2,3}
+  t = {4,5}
+  s.union(t) return {1, 2, 3, 4, 5}
+  s.update(t) return s = {1, 2, 3, 4, 5}
+  
+5. Python Dictionaries:-
+
+    Dictionaries are used to store data values in key:value pairs.
+    A dictionary is a collection which is ordered, changeable and do not allow duplicates.
+    Ex:- Mydetails = {'name' : "Pakkirappa", 'Course' : 'Data Science Masters', 'Duration' : 8}
+
+6. Yes, we can create a nested dictionaries.
+  Ex:- Mydetails = {'name' : "Pakkirappa", 'Course' : 'Data Science Masters', 'Duration' : 8, 'Education_details' : {'Degree' : 'Masters', 'DoC' : 2021, 'College' : 'NIT Calicut'}}
+       Mydetails return 
+        {'name': 'Pakkirappa',
+         'Course': 'Data Science Masters',
+         'Duration': 8,
+         'Education_details': {'Degree': 'Masters',
+          'DoC': 2021,
+          'College': 'NIT Calicut'}}
+
+7. Set default method():-
+  list1 = ["Python", "Machine Learning","Deep Learning"]
+  dict1 = {'language' : 'Python', 'course': 'Data Science Masters'}
+  dict1.setdefault("topics", list1) return ['Python', 'Machine Learning', 'Deep Learning']
+  dict1 return 
+  {'language': 'Python',
+   'course': 'Data Science Masters',
+   'topics': ['Python', 'Machine Learning', 'Deep Learning']}
+
+8. Keys, Values and Items in Dictionaries in Python:-
+  In the python dictionaries, some of the methods return view objects. This view objects are dynamic view objects, meaning that when we made some changes in the dictionary then the view reflects all these changes.
+  The main view objects of dictionary in python are keys, values and items. They provide a non-constant view of the dictionary’s entries.
+  The view object keys represent all the keys in a dictionary. You can retrieve the contents of this object using the keys() method.
+  The values() is an built in method of Python programming language which returns a view object. That view object contains the value of the dictionary as a list.
+  The items() method returns a new view of the dictionary’s items ((key, value) pairs) as a list with all dictionary keys with values.
+  Ex:- 
+  dict1 = {'Sport': 'Cricket' , 'Teams': ['India', 'Australia', 'England', 'South Africa', 'Sri Lanka', 'New Zealand']}
+  dict1.keys() return dict_keys(['Sport', 'Teams'])
+  dict1.values() return dict_values(['Cricket', ['India', 'Australia', 'England', 'South Africa', 'Sri Lanka', 'New Zealand']])
+  dict1.items() return dict_items([('Sport', 'Cricket'), ('Teams', ['India', 'Australia', 'England', 'South Africa', 'Sri Lanka', 'New Zealand'])])
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
