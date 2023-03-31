@@ -1,5 +1,6 @@
 Q1. Which keyword is used to create a function? Create a function to return a list of odd numbers in the
 range of 1 to 25.?
+
     The word def is the keyword for defining a function. The function name is followed by parameter(s) in (). 
     The colon : signals the start of the function body, which is marked by indentation. 
     Inside the function body, the return statement determines the value to be returned.
@@ -16,9 +17,31 @@ range of 1 to 25.?
 
 Q2. Why *args and **kwargs is used in some functions? Create a function each for *args and **kwargs to
 demonstrate their use.
-    
-
-
+    When we are writing Python code, functions are something that we cannot overlook. Functions are beneficial in removing the repetition of code and making it modular . Functions generally need some data to work on, and it can be in the form of strings, numbers, or even other functions. In the programming world, this data is referred to as arguments.
+    Sometimes it is possible that you can't predict the number of arguments that we will be providing to the function. This can cause the problem, and if you don’t know how to handle it, then you will end up getting stuck writing the same code for variable number of arguments.
+    *args specifies the number of non-keyworded arguments that can be passed and the operations that can be performed on the function in Python whereas **kwargs is a variable number of keyworded arguments that can be passed to a function that can perform dictionary operations.
+        Function that can do multiplication of two numbers:-
+            def multiply(num1,num2):
+            return num1*num2
+            print("product:", multiply(2,3)) 
+        Function that can do multiplication of three numbers:-
+            def multiplyThreeNumbers(num1, num2, num3):
+            return num1*num2*num3
+            print("product:",multiplyThreeNumbers(1, 2, 3))
+         Function that can do multiplication of multiple numbers:-
+            def multiplyNumbers(*numbers):
+            product=1
+            for n in numbers:
+                product*=n
+            return product
+            print("product:",multiplyNumbers(4,4,4,4,4,4)) 
+        Function that can use the multiple key-value pairs as arguments:
+            def makeSentence(**words):
+            sentence=''
+            for word in words.values():
+                sentence+=word
+            return sentence
+            print('Sentence:', makeSentence(a='Kwargs ',b='are ', c='awesome!'))
 
 
 Q3. What is an iterator in python? Name the method used to initialise the iterator object and the method
