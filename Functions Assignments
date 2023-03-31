@@ -13,10 +13,9 @@ range of 1 to 25.?
     return newlist
     oddfn(1,25) return [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25]
 
-
-
 Q2. Why *args and **kwargs is used in some functions? Create a function each for *args and **kwargs to
 demonstrate their use.
+
     When we are writing Python code, functions are something that we cannot overlook. Functions are beneficial in removing the repetition of code and making it modular . Functions generally need some data to work on, and it can be in the form of strings, numbers, or even other functions. In the programming world, this data is referred to as arguments.
     Sometimes it is possible that you can't predict the number of arguments that we will be providing to the function. This can cause the problem, and if you don’t know how to handle it, then you will end up getting stuck writing the same code for variable number of arguments.
     *args specifies the number of non-keyworded arguments that can be passed and the operations that can be performed on the function in Python whereas **kwargs is a variable number of keyworded arguments that can be passed to a function that can perform dictionary operations.
@@ -42,7 +41,6 @@ demonstrate their use.
                 sentence+=word
             return sentence
             print('Sentence:', makeSentence(a='Kwargs ',b='are ', c='awesome!'))
-
 
 Q3. What is an iterator in python? Name the method used to initialise the iterator object and the method
 used for iteration. Use these methods to print the first five elements of the given list [2, 4, 6, 8, 10, 12, 14, 16,
