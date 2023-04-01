@@ -83,4 +83,17 @@ function.
 Q5. Create a generator function for prime numbers less than 1000. Use the next() method to print the
 first 20 prime numbers.
     
+    def primefn(n):
+    for i in range(n):
+        if i > 1:
+            l = []
+            for j in range(2,i):
+                if (i%j) == 0:
+                    break
+            else:
+                yield i
+    primelist = list(primefn(1000))
+    primeno = iter(primelist[0:20])
+    for i in primelist[0:20]:
+        print(next(primeno))
     
