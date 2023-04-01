@@ -38,4 +38,5 @@ Q6. Write a python program to find palindromes in the given list of strings usin
 function.
 ['python', 'php', 'aba', 'radar', 'level']
     
-    
+    strlist = ['python', 'php', 'aba', 'radar', 'level']
+    list(filter(lambda x : x[:] == x[::-1], strlist))
