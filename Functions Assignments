@@ -58,12 +58,20 @@ used for iteration. Use these methods to print the first five elements of the gi
         print(next(myit))
         print(next(myit))
     
-
+        Problem-1:-  mylist = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+                myit = iter(mylist[0:5])
+                for i in mylist[0:5]:
+                    print(next(myit))
+    We can also use a for loop to iterate through an iterable object:
+                    mylist = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+                    for i in range(5):
+                        print(mylist[i])
 
 Q4. What is a generator function in python? Why yield keyword is used? Give an example of a generator
 function.
-    
 
+    In Python, a generator is a function that returns an iterator that produces a sequence of values when iterated over. Generators are useful when we want to produce a large sequence of values, but we don't want to store all of them in memory at once.
+    The yield keyword in Python controls the flow of a generator function. This is similar to a return statement used for returning values in Python.
 
 
 
