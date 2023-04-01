@@ -72,9 +72,15 @@ function.
 
     In Python, a generator is a function that returns an iterator that produces a sequence of values when iterated over. Generators are useful when we want to produce a large sequence of values, but we don't want to store all of them in memory at once.
     The yield keyword in Python controls the flow of a generator function. This is similar to a return statement used for returning values in Python.
-
-
+    Ex-1:   list1 = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+            def fnfive(n,list1):
+            for i in range(n):
+                yield list1[i]
+                
+            for i in fnfive(5,list1):
+                print(i)
 
 Q5. Create a generator function for prime numbers less than 1000. Use the next() method to print the
 first 20 prime numbers.
+    
     
