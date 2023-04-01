@@ -16,7 +16,9 @@ Q3. Write a python program to convert the given list of integers into a tuple of
 lambda functions
 Given String: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 Expected output: ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10')
-
+    
+    String = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    tuple(map(lambda x: str(x), String))
   
 
 Q4. Write a python program using reduce function to compute the product of a list containing numbers
