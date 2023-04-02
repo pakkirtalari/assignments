@@ -48,3 +48,87 @@ Q4. Why self is used in OOPs?
 Q5. What is inheritance? Give an example for each type of inheritance.
 
     Inheritance is a way of representing real-world relationships between the two. Here’s an example – car, bus, bike – all of these come under a broader category called Vehicle. That means they’ve inherited the properties of class vehicles, i.e., all are used for transportation. We can represent this relationship in code with the help of inheritance.
+    1. Single Inheritance
+        class Parent:
+            def f1(self):
+                print("Function of parent class.")
+
+        class Child(Parent):
+            def f2(self):
+                print("Function of child class.")
+
+         object1 = Child()
+         object1.f1()
+         object1.f2()
+         
+       2. Multiple Inheritance
+            class Parent_1:
+                def f1(self):
+                    print("Function of parent_1 class.")
+
+                class Parent_2:
+                    def f2(self):
+                        print("Function of parent_2 class.")
+
+                class Parent_3:
+                    def f3(self):
+                        print("function of parent_3 class.")
+
+                class Child(Parent_1, Parent_2, Parent_3):
+                    def f4(self):
+                        print("Function of child class.")
+
+                object_1 = Child()
+                object_1.f1()
+                object_1.f2()
+                object_1.f3()
+                object_1.f4()
+       
+       3.Multi-level Inheritance
+       
+            class Parent:
+                def f1(self):
+                    print("Function of parent class.")
+
+            class Child_1(Parent):
+                def f2(self):
+                    print("Function of child_1 class.")
+
+            class Child_2(Child_1):
+                def f3(self):
+                    print("Function of child_2 class.")
+
+            obj_1 = Child_1()
+            obj_2 = Child_2()
+
+            obj_1.f1()
+            obj_1.f2()
+
+            print("\n")
+            obj_2.f1()
+            obj_2.f2()
+            obj_2.f3()
+       
+       4.Hierarchical Inheritance
+       
+            class Parent:
+                deff1(self):
+                    print("Function of parent class.")
+
+            class Child_1(Parent):
+                deff2(self):
+                    print("Function of child_1 class.")
+
+            class Child_2(Parent):
+                deff3(self):
+                    print("Function of child_2 class.")
+
+            obj_1 = Child_1()
+            obj_2 = Child_2()
+
+            obj_1.f1()
+            obj_1.f2()
+
+            print('\n')
+            obj_2.f1()
+            obj_2.f3()
