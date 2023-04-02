@@ -1,20 +1,50 @@
 
 Q1. Explain Class and Object with respect to Object-Oriented Programming. Give a suitable example.
 
-  
+    A class is a collection of objects. A class contains the blueprints or the prototype from which the objects are being created. It is a logical entity that contains some attributes and methods. 
+    To understand the need for creating a class let’s consider an example, let’s say you wanted to track the number of dogs that may have different attributes like breed, age. If a list is used, the first element could be the dog’s breed while the second element could represent its age. Let’s suppose there are 100 different dogs, then how would you know which element is supposed to be which? What if you wanted to add other properties to these dogs? This lacks organization and it’s the exact need for classes. 
 
+    The object is an entity that has a state and behavior associated with it. It may be any real-world object like a mouse, keyboard, chair, table, pen, etc. Integers, strings, floating-point numbers, even arrays, and dictionaries, are all objects.
+
+    Ex-1:-
+    class pwskills:
+      def wel_msg(self):
+          print('welcome to DS Masters')
+    pakkir = pwskills()
+    pakkir.wel_msg() return 'welcome to DS Masters'
+  
 Q2. Name the four pillars of OOPs.
 
-  
+    The Four pillars of OOPs, abstraction, encapsulation, inheritance, and polymorphism, are integral to understanding and using OOP
 
 Q3. Explain why the __init__() function is used. Give a suitable example.
 
+    Let’s say you are making a program which stores information about cars. You will create a class of name Car and then create objects of different cars. When creating a class object, we pass different things to it. In the case of cars, it will be company model, year of manufacture, etc. So, inside the class, we need a function that can assign all the arguments passed while creating the object to the newly created object. Or you might want to print something whenever a new car is added to your program.
+    There is a method called __init__() for this task. This method is called automatically whenever a new object of a class is created. This type of function is also known as the constructor function. A constructor function is a function that is called every time a new class object is created.
+    Example of a class Car that will clarify the functioning of __init__().
   
+    class Car:
+      def __init__(self, name):
+          self.name = name
+          print("I ran first")
 
+      def product(self):
+          print("I ran second")
+          return ("Name: " + self.name)
+
+
+      C = Car('Audi R8')
+      print(C.product()) 
+      returns I ran first
+              I ran second
+              Name: Audi R8
+
+
+  
 Q4. Why self is used in OOPs?
 
-  
+    The self variable is used to represent the instance of the class which is often used in object-oriented programming. It works as a reference to the object. Python uses the self parameter to refer to instance attributes and methods of the class.
 
 Q5. What is inheritance? Give an example for each type of inheritance.
 
-  
+    Inheritance is a way of representing real-world relationships between the two. Here’s an example – car, bus, bike – all of these come under a broader category called Vehicle. That means they’ve inherited the properties of class vehicles, i.e., all are used for transportation. We can represent this relationship in code with the help of inheritance.
