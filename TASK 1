@@ -65,11 +65,23 @@ Answers:-
       
     class convert:
     
-    def __init__(self,state):
-        self.__state = state.lower()
+          def __init__(self,state):
+              self.__state = state.lower()
+
+          def statement(self):
+              return self.__state.replace('a','z').replace('b','y').replace('c','x').replace(' ', '$')
+
+          obj_convert = convert(message1)
+          obj_convert.statement()
     
-    def statement(self):
-        return self.__state.replace('a','z').replace('b','y').replace('c','x').replace(' ', '$')
-        
-    obj_convert = convert(message1)
-    obj_convert.statement() returns 'i$wznt$to$yexome$z$dztz$sxientist.'
+    
+   
+   OR 
+   
+      def con_lower(state):
+          state = state.lower()
+          return state
+    
+      def statement_u(self):
+          self = con_lower(self)
+          return self.replace('a','z').replace('b','y').replace('c','x').replace(' ', '$')
