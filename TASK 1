@@ -63,4 +63,13 @@ lowercase.
 
 Answers:- 
       
-      
+    class convert:
+    
+    def __init__(self,state):
+        self.__state = state.lower()
+    
+    def statement(self):
+        return self.__state.replace('a','z').replace('b','y').replace('c','x').replace(' ', '$')
+        
+    obj_convert = convert(message1)
+    obj_convert.statement() returns 'i$wznt$to$yexome$z$dztz$sxientist.'
