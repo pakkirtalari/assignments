@@ -7,7 +7,40 @@ Note:
 2. The Password should contain at least a number and three special characters.
 3. The length of the password should be 10 characters long.
 
-
+  Answers:-
+  
+              def upper_fn(st):
+                  countu = 0
+                  for i in st:
+                      if i.isupper():
+                          countu= countu + 1
+                  return countu
+              def lower_fn(st):
+                  countl = 0
+                  for i in st:
+                      if i.islower():
+                          countl= countl + 1
+                  return countl
+              def digit_fn(st):
+                  countd = 0
+                  for i in st:
+                      if i.isdigit():
+                          countd= countd + 1
+                  return countd
+              def password_validity(password):
+                  l = len(password)
+                  l_sp = 0
+                  if l >=10:
+                      l_u = upper_fn(password)
+                      l_l = lower_fn(password)
+                      l_d = digit_fn(password)
+                      l_sp = l - l_u - l_l - l_sp
+                      if l_u >= 2 and l_l >= 2 and l_d >= 1 and l_sp >= 3:
+                          print("Valid Password")
+                      else:
+                          print("Invalid Password")
+                  else:
+                      print("Inalid Password")
 
 
 
