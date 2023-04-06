@@ -49,7 +49,7 @@ Note:
 Q2. Solve the below-given questions using at least one of the following:
     1. Lambda function
     2. Filter function
-    3. Zap function
+    3. Map function
     4. List Comprehension
 2.1 Check if the string starts with a particular letter
 2.2 Check if the string is numeric
