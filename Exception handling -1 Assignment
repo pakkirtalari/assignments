@@ -1,0 +1,25 @@
+1. What is an Exception in python? Write the difference between Exceptions and syntax errors
+
+Answer:-
+  Errors and Exceptions in Python:-
+    Errors are the problems in a program due to which the program will stop the execution. On the other hand, exceptions are raised when some internal events occur which changes the normal flow of the program. 
+    Two types of Error occurs in python. 
+      1. Syntax errors
+      2. Logical errors (Exceptions) 
+      Syntax errors:-
+        When the proper syntax of the language is not followed then a syntax error is thrown.
+        Example :- 
+            amount = 25
+            if(amount>18)
+              print("You are eligible to vote")
+
+            It returns a syntax error message because after the if statement a colon: is missing. We can fix this by writing the correct syntax.
+      Logical errors(Exception)
+          When in the runtime an error that occurs after passing the syntax test is called exception or logical type. 
+          For example, when we divide any number by zero then the ZeroDivisionError exception is raised, or when we import a module that does not exist then ImportError is raised.
+          Example:-
+              marks = 10000
+              a = marks / 0
+              print(a)
+
+              In the above example the ZeroDivisionError as we are trying to divide a number by 0.
