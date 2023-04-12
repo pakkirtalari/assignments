@@ -17,8 +17,21 @@ Q2. Create a child class car from the vehicle class created in Que 1, which will
 Create a method named seating_capacity which takes capacity as an argument and returns the name of
 the vehicle and its seating capacity.
 
-      
-
+      class vehicle:
+    
+          def __init__(self, name_of_vehicle, max_speed, average_of_vehicle):
+              self.name_of_vehicle = name_of_vehicle
+              self.max_speed = max_speed
+              self.average_of_vehicle = average_of_vehicle
+      class child(vehicle):
+    
+          def seating_capacity(self,capacity):
+              self.capacity = capacity
+              print("My vehicle name", self.name_of_vehicle)
+              print("Vehicle capacity is", self.capacity)
+      child_obj = child("toyato", 180, 60)
+      child_obj.seating_capacity(8)
+          
 Q3. What is multiple inheritance? Write a python code to demonstrate multiple inheritance.
 
 
