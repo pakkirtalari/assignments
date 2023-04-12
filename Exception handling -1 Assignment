@@ -106,4 +106,48 @@ Q4. Explain with an example
 
 Q5. What are Custom Exceptions in python? Why do we need Custom Exceptions? Explain with an example
 
+      To create a custom exception class, you define a class that inherits from the built-in Exception class or one of its subclasses such as ValueError class:
+      In some cases, python won't consider the exceptions even if it is an exception but logically it's correct. For example if the height of a person shouldn't be negative and it shouldn't be more than 8 feets. But if we enter the age negative it won't gives an exception. So, in such caese we need to create our own excptions baesd on the requirement.
+      Example:- 
+                
+                class validateheight(Exception):
+    
+                    def __init__(self, height):
+                        self.height = height
+                
+                def validate_height(height):
+                    if height < 0:
+                        raise validateheight("height of a person shouldn't be negative")
+                    elif height > 8:
+                        raise validateheight("height of a person shouldn't be more than 8")
+                    else:
+                        print("Valid height")
+                 
+                 try:
+                     height = int(input("Enter your height"))
+                     validate_height(height)
+                 except validateheight as e:
+                     print(e)
+
 Q6. Create custom exception class. Use this class to handle an exception.
+
+              Example:- 
+                
+                class validateheight(Exception):
+    
+                    def __init__(self, height):
+                        self.height = height
+                
+                def validate_height(height):
+                    if height < 0:
+                        raise validateheight("height of a person shouldn't be negative")
+                    elif height > 8:
+                        raise validateheight("height of a person shouldn't be more than 8")
+                    else:
+                        print("Valid height")
+                 
+                 try:
+                     height = int(input("Enter your height"))
+                     validate_height(height)
+                 except validateheight as e:
+                     print(e)
