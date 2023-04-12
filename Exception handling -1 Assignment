@@ -26,13 +26,84 @@ Answer:-
            
 Q2. What happens when an exception is not handled? Explain with an example
 
+     If an exception is not caught (with a catch block), the runtime system will abort the program (i.e. crash) and an exception message will print to the console.
+     Example:- 
+            
+            file = open("test10.txt", "r")
+            Here i am asking to read the file which is not created in the lab and if we won't handle this exception, then it will return me an "FileNot FoundError". 
+              FileNotFoundError                         Traceback (most recent call last)
+              Cell In[3], line 1
+              ----> 1 file = open("test10.txt", "r")
+
+              File /opt/conda/lib/python3.10/site-packages/IPython/core/interactiveshell.py:282, in _modified_open(file, *args, **kwargs)
+                  275 if file in {0, 1, 2}:
+                  276     raise ValueError(
+                  277         f"IPython won't let you open fd={file} by default "
+                  278         "as it is likely to crash IPython. If you know what you are doing, "
+                  279         "you can use builtins' open."
+                  280     )
+              --> 282 return io_open(file, *args, **kwargs)
+
+              FileNotFoundError: [Errno 2] No such file or directory: 'test10.txt'
+
 Q3. Which Python statements are used to catch and handle exceptions? Explain with an example
 
+    The try and except block in Python is used to catch and handle exceptions. Python executes code following the try statement as a “normal” part of the program. 
+    The code that follows the except statement is the program's response to any exceptions in the preceding try clause.
+    Example:-
+        try:
+            file = open("test10.txt", "r")
+        except Exception as e1:
+            print("There is some issue with my code", e1)
+        
+        Output:- There is some issue with my code [Errno 2] No such file or directory: 'test10.txt'
+        
+        Here i am asking to read the file which is not created in the lab. So, generally we get an error. But we are handlingt the exception by using try and exception statements.
+        So, we get the statement which we write in the except statement.
+        
+        
 Q4. Explain with an example
  a. try and else
- b. finally
- c. raise
  
+        Example:-
+        try:
+            file = open("test10.txt", "r")
+        except Exception as e1:
+            print("There is some issue with my code", e1)
+        
+        Output:- There is some issue with my code [Errno 2] No such file or directory: 'test10.txt'
+        
+        Here i am asking to read the file which is not created in the lab. So, generally we get an error. But we are handlingt the exception by using try and exception statements.
+        So, we get the statement which we write in the except statement.
+ 
+ b. finally
+ 
+    Example:-
+        try:
+            file = open("test10.txt", "r")
+        except Exception as e1:
+            print("There is some issue with my code", e1)
+        finally:
+            print("This will execute always")
+        
+        Output:- There is some issue with my code [Errno 2] No such file or directory: 'test10.txt'
+                 This will execute always
+        
+        Here i am asking to read the file which is not created in the lab. So, generally we get an error. But we are handlingt the exception by using try and exception statements.
+        So, we get the statement which we write in the except statement.
+        
+        Here finally is independent of both try and execption and it will always gives the response whichever written in the finnaly statement.
+ 
+ c. raise
+      
+        The raise keyword is used to raise an exception.
+        You can define what kind of error to raise, and the text to print to the user.
+        Raise a TypeError if x is not an integer:
+        Example:-
+              x = "hello"
+              if not type(x) is int:
+                raise TypeError("Only integers are allowed")
+
 Q5. What are Custom Exceptions in python? Why do we need Custom Exceptions? Explain with an example
 
 Q6. Create custom exception class. Use this class to handle an exception.
