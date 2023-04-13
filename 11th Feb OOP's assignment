@@ -1,8 +1,24 @@
 Q1. Which function is used to open a file? What are the different modes of opening a file? Explain each mode
 of file opening.
 
-
-
+      Opening Files in Python
+      In Python, we use the open() method to open files.
+      To demonstrate how we open files in Python, let's suppose we have a file named test.txt with the following content.
+      file1 = open("test.txt")
+      By default, the files are open in read mode (cannot be modified). The code above is equivalent to file1 = open("test.txt", "r")
+      Mode	Description
+        r	  Open a file for reading. (default)
+        w	  Open a file for writing. Creates a new file if it does not exist or truncates the file if it exists.
+        x	  Open a file for exclusive creation. If the file already exists, the operation fails.
+        a	  Open a file for appending at the end of the file without truncating it. Creates a new file if it does not exist.
+        t	  Open in text mode. (default)
+        b	  Open in binary mode.
+        +	  Open a file for updating (reading and writing)
+        
+        file2 = open("test.txt")      
+        file3 = open("test.txt",'w')
+      
+      
 Q2. Why close() function is used? Why is it important to close a file?
 
 
