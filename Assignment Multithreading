@@ -1,0 +1,30 @@
+Q1. what is multithreading in python? hy is it used? Name the module used to handle threads in python.
+
+
+
+Q2. why threading module used? rite the use of the following functions
+    1. activeCount()
+    2. currentThread()
+    3. enumerate()
+    
+    
+    
+Q3. Explain the following functions
+    1. run()
+    2. start()
+    3. join()
+    4. isAlive()
+    
+    
+    
+Q4. write a python program to create two threads. Thread one must print the list of squares and thread two must print the list of cubes
+
+
+
+Q5. State advantages and disadvantages of multithreading
+
+
+
+Q6. Explain deadlocks and race conditions.
+
+
