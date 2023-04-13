@@ -21,16 +21,19 @@ of file opening.
       
 Q2. Why close() function is used? Why is it important to close a file?
 
-
+        The close() method closes an open file. 
+        You should always close your files, in some cases, due to buffering, changes made to a file may not show until you close the file.
 
 Q3. Write a python program to create a text file. Write ‘I want to become a Data Scientist’ in that file. Then
 close the file. Open this file and read the content of the file.
 
-
+      file1 = open("myfile.txt", "w")
+      file1.write("This is my file")
+      file1.close()
 
 Q4. Explain the following with python code: read(), readline() and readlines().
 
-
+      
 
 Q5. Explain why with statement is used with open(). What is the advantage of using with statement and
 open() together?
