@@ -62,3 +62,23 @@ open() together?
             Using with means that the file will be closed as soon as you leave the block. This is beneficial because closing a file is something that can easily be forgotten and ties up resources that you no longer need.
 
 Q6. Explain the write() and writelines() functions. Give a suitable example.
+
+            write() function:-
+            The write() function will write the content in the file without adding any extra characters.
+            Ex:-      file1 = open("myfile.txt", "w")
+                      file1.write("This is my new file")
+                      
+            writelines() function:-
+            This function writes the content of a list to a file.
+            
+            Ex:-  file1 = open("Employees.txt", "w")
+                  lst = []
+                  for i in range(3):
+                      name = input("Enter the name of the employee: ")
+                      lst.append(name + '\n')
+
+                  file1.writelines(lst)
+                  file1.close()
+                  print("Data is written into the file.") 
+
+            
