@@ -1,0 +1,7 @@
+Q1. What is multiprocessing in python? Why is it useful?
+Q2. What are the differences between multiprocessing and multithreading?
+Q3. Write a python code to create a process using the multiprocessing module.
+Q4. What is a multiprocessing pool in python? Why is it used?
+Q5. How can we create a pool of worker processes in python using the multiprocessing module?
+Q6. Write a python program to create 4 processes, each process should print a different number using the
+multiprocessing module in python.
