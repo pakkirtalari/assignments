@@ -53,23 +53,33 @@ Q5. State advantages and disadvantages of multithreading
 
     Advantages of multithreading:
 
-        Enhanced performance by decreased development time
-        Simplified and streamlined program coding
-        Improvised GUI responsiveness
-        Simultaneous and parallelized occurrence of tasks
-        Better use of cache storage by utilization of resources
-        Decreased cost of maintenance
-        Better use of CPU resource
+        1. Enhanced performance by decreased development time
+        2. Simplified and streamlined program coding
+        3. Improvised GUI responsiveness
+        4. Simultaneous and parallelized occurrence of tasks
+        5. Better use of cache storage by utilization of resources
+        6. Decreased cost of maintenance
+        7. Better use of CPU resource
 
     Disadvantages of multithreading:
     
-        Complex debugging and testing processes
-        Overhead switching of context
-        Increased potential for deadlock occurrence
-        Increased difficulty level in writing a program
-        Unpredictable results
+        1. Complex debugging and testing processes
+        2. Overhead switching of context
+        3. Increased potential for deadlock occurrence
+        4. Increased difficulty level in writing a program
+        5. Unpredictable results
 
 
 Q6. Explain deadlocks and race conditions.
 
+    A most common operational issue with multi-threaded applications, a racing attack is an unwanted situation referring to the incidences when a multithread tool tries to accomplish more than one task at a time. But, the predefined sequencing of that specific program/device will not let it happen as the device/software must follow the default sequence. 
+    A deeper understanding of race condition definition reveals that there are multiple race condition types. The key ones are explained here:
 
+        1. Critical ones will influence the terminating stage of a program or device and force it to modify.
+        2. Non-critical ones haVe no direct impact on the end stage or action of the concerning devices/resources.
+    
+    Both share some similarities, such as they both occur in multi-thread solutions and hamper device performance. However, both are not the same.
+    A race condition occurs when two threads use the same variable at a given time. Deadlock exists when two threads seek one lock simultaneously.  
+    This situation will stop both threads from processing or executing the functions. In racing, two tasks compete with each other and try to complete a task before each other.
+    In a deadlock, two processes are waiting and expecting the complementary process to complete the task.
+    
