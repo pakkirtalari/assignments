@@ -51,6 +51,23 @@ Q4. write a python program to create two threads. Thread one must print the list
 
 Q5. State advantages and disadvantages of multithreading
 
+    Advantages of multithreading:
+
+        Enhanced performance by decreased development time
+        Simplified and streamlined program coding
+        Improvised GUI responsiveness
+        Simultaneous and parallelized occurrence of tasks
+        Better use of cache storage by utilization of resources
+        Decreased cost of maintenance
+        Better use of CPU resource
+
+    Disadvantages of multithreading:
+    
+        Complex debugging and testing processes
+        Overhead switching of context
+        Increased potential for deadlock occurrence
+        Increased difficulty level in writing a program
+        Unpredictable results
 
 
 Q6. Explain deadlocks and race conditions.
