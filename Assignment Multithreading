@@ -21,15 +21,32 @@ Q2. why threading module used? write the use of the following functions
     
     
 Q3. Explain the following functions
-    1. run()
-    2. start()
-    3. join()
-    4. isAlive()
-    
-    
+
+    1. run() - The run() method executes any target function belonging to a given thread object that is now active. 
+    2. start() - A start method is the technique used to start child processes in Python. There are three start methods, they are: spawn: start a new Python process. fork: copy a Python process from an existing process. forkserver: new process from which future forked processes will be copied.
+    3. join() - The join in Python takes all the elements of an iterable and joins them into a single string. It will return the joined string. You have to specify a string separator that will be used to separate the concatenated string.
+    4. isAlive() - The isAlive() method checks whether a thread is still executing. getName() − The getName() method returns the name of a thread. setName() − The setName() method sets the name of a thread.
     
 Q4. write a python program to create two threads. Thread one must print the list of squares and thread two must print the list of cubes
+    
+    import threading
+  
+    def cal_sqre(num):
+        sq_list = []
+        for n in num: 
+            sq_list.append(n**2)
+        print(sq_list)
 
+
+    def cal_cube(num): 
+        cub_list = []
+        for n in num:   
+            cub_list.append(n**3)
+        print(cub_list)
+    list1 = [4, 5, 6, 7, 2] 
+
+    cal_sqre(list1)  
+    cal_cube(list1)  
 
 
 Q5. State advantages and disadvantages of multithreading
