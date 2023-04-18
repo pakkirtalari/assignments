@@ -1,15 +1,54 @@
 Q1. What is a database? Differentiate between SQL and NoSQL databases.
 
-
-
+  A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS)
+  SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores. SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON.
+  
 Q2. What is DDL? Explain why CREATE, DROP, ALTER, and TRUNCATE are used with an example.
 
-
-
+  Data Definition Language (DDL) is a subset of SQL. It is a language for describing data and its relationships in a database.
+  Data definition language (DDL) statements let you to perform these tasks: Create, alter, and drop schema objects. Grant and revoke privileges and roles. Analyze information on a table, index, or cluster. Establish auditing options.
+  
+  1. CREATE TABLE
+    The CREATE TABLE command creates a new table in the database.
+    CREATE TABLE Persons (
+        PersonID int,
+        LastName varchar(255),
+        FirstName varchar(255),
+        Address varchar(255),
+        City varchar(255)
+    );
+    
+   2. DROP TABLE
+    The DROP TABLE command deletes a table in the database.
+    DROP TABLE Persons;
+    
+   3. ALTER TABLE
+    The ALTER TABLE command adds, deletes, or modifies columns in a table.
+    The ALTER TABLE command also adds and deletes various constraints in a table.
+    ALTER TABLE Persons
+    ADD Email varchar(255);
+   
+   4. TRUNCATE TABLE
+    The TRUNCATE TABLE command deletes the data inside a table, but not the table itself.
+    TRUNCATE TABLE Persons;
+ 
 Q3. What is DML? Explain INSERT, UPDATE, and DELETE with an example.
 
-
-
+  Data manipulation language (DML) statements access and manipulate data in existing tables. In the SQL*Plus environment, you can enter a DML statement after the SQL> prompt. In the SQL Developer environment, you can enter a DML statement in the Worksheet.
+  
+  1. INSERT INTO
+      The INSERT INTO command is used to insert new rows in a table.
+      INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+      VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+  2. UPDATE
+      The UPDATE statement is used to modify the existing records in a table.
+      UPDATE table_name
+      SET column1 = value1, column2 = value2, ...
+      WHERE condition;
+  3. DELETE
+      The DELETE statement is used to delete existing records in a table.
+      DELETE FROM table_name WHERE condition;
+      
 Q4. What is DQL? Explain SELECT with an example.
 
 
