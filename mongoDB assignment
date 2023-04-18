@@ -1,30 +1,130 @@
 Q1. What is MongoDB? Explain non-relational databases in short. In which scenarios it is preferred to use
 MongoDB over SQL databases?
 
-
-
+  MongoDB is a document database used to build highly available and scalable internet applications. With its flexible schema approach, it's popular with development teams using agile methodologies.
+  A non-relational database is a database that does not use the tabular schema of rows and columns found in most traditional database systems. Instead, non-relational databases use a storage model that is optimized for the specific requirements of the type of data being stored.
+  While MongoDB supports JSON querying, a SQL Database uses SQL query processing. The basic characteristics make MongoDB a more dynamic and complex option that is fit for hierarchical data while a SQL Database remains more predefined and suited for other kinds of data storage.
+  
 Q2. State and Explain the features of MongoDB.
 
-
+  MongoDB is a scalable, flexible NoSQL document database platform designed to overcome the relational databases approach and the limitations of other NoSQL solutions.
+  MongoDB is well known for its horizontal scaling and load balancing capabilities, which has given application developers an unprecedented level of flexibility and scalability. MongoDB Atlas is the leading global cloud database service for modern applications.
 
 Q3. Write a code to connect MongoDB to Python. Also, create a database and a collection in MongoDB.
 
+    from pymongo.mongo_client import MongoClient
 
+    uri = "mongodb+srv://talaripakkirappa04:Pakkir04@cluster0.vtocfqo.mongodb.net/?retryWrites=true&w=majority"
 
-Q4. Using the database and the collection created in question number 3, write a code to insert one record,
-and insert many records. Use the find() and find_one() methods to print the inserted record.
+    # Create a new client and connect to the server
+    client = MongoClient(uri)
 
+    # Send a ping to confirm a successful connection
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+    except Exception as e:
+        print(e)
+    
+    db = client["pakkir"]
+    collection_create = db["my_collection"]
+    random_data = [
+          {'_id': '3', 'companyName': 'iNeuron', 'Faculty': 'XYZ'},
+          {'_id': '4', 'companyName': 'iNeuron', 'Faculty': 'ABC'},
+          {'_id': '5', 'companyName': 'iNeuron', 'Faculty': 'PQR'},
+      ]
+    collection_create.insert_one(random_data)
+    for i in collection_create.find({'_id' : {'$gte' : '4'}}):
+        print(i)
+    
+Q4. Using the database and the collection created in question number 3, write a code to insert one record, and insert many records. Use the find() and find_one() methods to print the inserted record.
+    
+    pip install mongo
+    from pymongo.mongo_client import MongoClient
 
+    uri = "mongodb+srv://talaripakkirappa04:Pakkir04@cluster0.vtocfqo.mongodb.net/?retryWrites=true&w=majority"
+
+    # Create a new client and connect to the server
+    client = MongoClient(uri)
+
+    # Send a ping to confirm a successful connection
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+    except Exception as e:
+        print(e)
+    
+    db = client["pakkir"]
+    collection_create = db["my_collection"]
+    random_data = [
+          {'_id': '3', 'companyName': 'iNeuron', 'Faculty': 'XYZ'},
+          {'_id': '4', 'companyName': 'iNeuron', 'Faculty': 'ABC'},
+          {'_id': '5', 'companyName': 'iNeuron', 'Faculty': 'PQR'},
+      ]
+    collection_create.insert_one(random_data)
+    for i in collection_create.find({'_id' : {'$gte' : '4'}}):
+        print(i)
+        
+    for i in collection_create.find_one({'_id' : {'$gte' : '4'}}):
+        print(i)
 
 Q5. Explain how you can use the find() method to query the MongoDB database. Write a simple code to
 demonstrate this.
 
+    In MongoDB, find() method is used to select documents in a collection and return a cursor to the selected documents. 
+    Cursor means a pointer that points to a document, when we use find() method it returns a pointer on the selected documents and returns one by one. 
+    If we want to return pointer on all documents then use empty() parameter that returns all documents one by one. It takes only some optional parameters. 
+    The first optional parameter is the selection criteria on which we want to return a cursor. To return all documents in a collection use empty document({}). 
+    Using this method you can also replace embedded documents. You can also use this method in multi-document transactions. 
+    If you use this method in the mongo shell, then the shell will automatically iterate the cursor to display up to 20 documents in the collection, if you want to continue then type it or you can manually iterate the result of the find() method by assigning the returned cursor to a variable with the var keyword. You can also modify the behavior of this method using cursor methods.
+    
+    pip install mongo
+    from pymongo.mongo_client import MongoClient
 
+    uri = "mongodb+srv://talaripakkirappa04:Pakkir04@cluster0.vtocfqo.mongodb.net/?retryWrites=true&w=majority"
 
+    # Create a new client and connect to the server
+    client = MongoClient(uri)
+
+    # Send a ping to confirm a successful connection
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+    except Exception as e:
+        print(e)
+    
+    db = client["pakkir"]
+    collection_create = db["my_collection"]
+    random_data = [
+          {'_id': '3', 'companyName': 'iNeuron', 'Faculty': 'XYZ'},
+          {'_id': '4', 'companyName': 'iNeuron', 'Faculty': 'ABC'},
+          {'_id': '5', 'companyName': 'iNeuron', 'Faculty': 'PQR'},
+      ]
+    collection_create.insert_one(random_data)
+    for i in collection_create.find({'_id' : {'$gte' : '4'}}):
+        print(i)
 Q6. Explain the sort() method. Give an example to demonstrate sorting in MongoDB.
 
-
-
+    The sort() method specifies the order in which the query returns the matching documents from the given collection. You must apply this method to the cursor before retrieving any documents from the database. It takes a document as a parameter that contains a field: value pair that defines the sort order of the result set. The value is 1 or -1 specify an ascending or descending sort respectively.
+    pip install mongo
+    import pymongo
+    client = pymongo.MongoClient("mongodb+srv://talaripakkirappa04:Pakkir04@cluster0.vtocfqo.mongodb.net/?retryWrites=true&w=majority")
+    db = client["pranu"]
+    collect_create = db["p_collections"]
+    my_record = (
+          {"name" : "Pakkir",
+          "age" : 25},
+          {
+          "name" : "Pranu",
+          "age" : 20
+          }
+      )
+      collect_create.insert_many(my_record)
+      db.collect_create.find().sort({"age":1})
+    
 Q7. Explain why delete_one(), delete_many(), and drop() is used.
 
-
+    Delete methods are used to remove records from the collection, deleteOne deletes the first record that matches the filter and deleteMany removes every record that matches the filter.
+    In MongoDB, db. collection. drop() method is used to drop a collection from a database. It completely removes a collection from the database and does not leave any indexes associated with the dropped collections.
+    
+    
