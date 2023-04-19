@@ -21,16 +21,61 @@ Q1. Explain GET and POST methods.
     
 Q2. Why is request used in Flask?
 
-
+    To access the incoming data in Flask, you have to use the request object. 
+    The request object holds all incoming data from the request, which includes the mimetype, referrer, IP address, raw data, HTTP method, and headers, among other things.
 
 Q3. Why is redirect() used in Flask?
 
-
+    Flask redirect is defined as a function or utility in Flask which allows developers to redirect users to a specified URL and assign a specified status code. 
+    When this function is called, a response object is returned, and the redirection happens to the target location with the status code.
 
 Q4. What are templates in Flask? Why is the render_template() function used?
 
-
-
+    Templates are files that contain static data as well as placeholders for dynamic data. A template is rendered with specific data to produce a final document. 
+    Flask uses the Jinja template library to render templates. In your application, you will use templates to render HTML which will display in the user's browser.
+    render_template is used to generate output from a template file based on the Jinja2 engine that is found in the application's templates folder. 
+    Note that render_template is typically imported directly from the flask package instead of from flask. templating .
+    
 Q5. Create a simple API. Use Postman to test it. Attach the screenshot of the output in the Jupyter Notebook.
 
+        from flask import Flask, request, jsonify, render_template
 
+        app = Flask(__name__)
+
+
+        @app.route("/")
+        def home_page():
+            return render_template("index.html")
+
+      
+        @app.route('/postman_action',methods=['POST'])
+        def math_ops1():
+            if(request.method == 'POST'):
+                ops = request.json['operation']
+                num1 = int(request.json['num1'])
+                num2 = int(request.json['num2'])
+                if ops == 'add':
+                    r = num1+num2
+                    result = "The sum of " + str(num1) + ' and ' + str(num2) + "is " + str(r)
+                if ops == 'subtract':
+                    r = num1-num2
+                    result = "The subtract of " + str(num1) + ' and ' + str(num2) + "is " + str(r)
+                if ops == 'multiply':
+                    r = num1*num2
+                    result = "The multiply of " + str(num1) + ' and ' + str(num2) + "is " + str(r)
+                if ops == 'divide':
+                    r = num1/num2
+                    result = "The divide of " + str(num1) + ' and ' + str(num2) + "is " + str(r)
+
+                return jsonify(result)
+
+        if __name__=="__main__":
+            app.run(host="0.0.0.0")
+
+        postman link :- https://white-chef-ywbra.pwskills.app:5000/postman_action
+            {
+                "operation" : "multiply",
+                "num1" : 15,
+                "num2" : 4
+             }
+        
