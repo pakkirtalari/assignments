@@ -3,41 +3,77 @@ Q1. Create a Pandas Series that contains the following data: 4, 8, 15, 16, 23, a
     import pandas as pd
     data = [4, 8, 15, 16, 23, 42]
     data_series = pd.Series(data)
-    data_series # prints the series
+    print(data_series) # prints the series
     type(data_series) # type of data i.e., pandas.core.series.Series
 
 Q2. Create a variable of list type containing 10 elements in it, and apply pandas.Series function on the variable print it.
 
-
+    import pandas as pd
+    l = list(range(1,11))
+    print(pd.Series(l))
 
 Q3. Create a Pandas DataFrame that contains the following data:
-Name
-Alice
-Bob
-Claire
-
-Age
-25
-30
-27
-
-Gender
-Female
-Male
-Female
-Then, print the DataFrame.
-
-
+    Name -- Alice Bob Claire
+    Age -- 25, 30, 27
+    Gender -- Female, Male, Female
+    Then, print the DataFrame.
+    
+Ans:-
+    import pandas as pd
+    data = {
+        "Name" : ['Alice', 'Bob', 'Claire'],
+        "Age" : [25, 30, 27],
+        "Gender" : ['Female', 'Male', 'Female']
+    }
+    pd.DataFrame(data)
 
 Q4. What is ‘DataFrame’ in pandas and how is it different from pandas.series? Explain with an example.
 
-
+    Although a Pandas Series and a single-column DataFrame have many similarities, there are some key differences between the two data structures.
+    Dimensions
+    The dimensions of the data are where a Pandas Series and a single-column DataFrame most obviously diverge. A Series only has one data column, whereas a single-column DataFrame contains both a data column and an index. The labels for the data are contained in the index, which is a second column.
+    Functionality
+    There are certain distinctions in the extra features that a Series and a single-column DataFrame offer, despite the fact that they share many common functionalities. Additional features like filtering, merging, and joining is accessible in a single-column DataFrame but not in a Series.
+    Data Alignment
+    Based on the index labels, a Pandas Series can be aligned with another Series or DataFrame. Even if the index labels are ordered differently, the alignment makes sure the data is correctly matched. Data alignment is also supported in a single-column DataFrame, but it is determined by the column label.
+    Performance
+    For actions that only involve one column of data, a Series performs more quickly than a single-column DataFrame. This is so because a Series has a more straightforward structure than a DataFrame with one column.
 
 Q5. What are some common functions you can use to manipulate data in a Pandas DataFrame? Can you give an example of when you might use one of these functions?
 
-
+    1. Head and Tail
+        Once we read a dataset into a pandas data frame, we want to take a look at it to get an overview. The simplest way is to display some rows. Head and tail allow us to display rows from the top of bottom of data frame, respectively.
+        5 rows are displayed by default but we can adjust it just by passing the number of rows we’d like to display.
+    2. DataFrame.info( )
+        Pandas dataframe.info() function is used to get a concise summary of the dataframe. It comes really handy when doing exploratory analysis of the data. To get a quick overview of the dataset we use the dataframe.info() function.
+    3. Dtypes
+        We need to have the values stored in an appropriate data type. Otherwise, we may encounter errors. For large datasets, memory-usage is greatly affected by correct data type selection. For example, “categorical” data type is more appropriate than “object” data type for categorical data especially when the number of categories is much less than the number of rows.
+    4. Shape and Size
+        Shape can be used on numpy arrays, pandas series and dataframes. It shows the number of dimensions as well as the size in each dimension.
+        Since dataframes are two-dimensional, what shape returns is the number of rows and columns. It is a measure of how much data we have and a key input to the data analysis process.
+        Furthermore, the ratio of rows and columns is very important when designing and implementing a machine learning model. If we do not have enough observations (rows) with respect to features (columns), we may need to apply some pre-processing techniques such as dimensional reduction or feature extraction.
+        Size, as the name suggests, returns the size of a dataframe which is the number of rows multiplied by the number of columns.
+    5. describe( )
+        If there’s one thing you do over and over again in the process of exploratory data analysis — that’s performing a statistical summary for every (or almost every) attribute.
+    6. Loc and iloc
+        Loc and iloc are used to select rows and columns.
+        loc: select by labels
+        iloc: select by positions
+        loc is used to select data by label. The labels of columns are the column names. We need to be careful about row labels. If we do not assign any specific indices, pandas created integer index by default. Thus, the row labels are integers starting from 0 and going up. The row positions that are used with iloc are also integers starting from 0.
+    7. Slicing
+        Slicing Rows and Columns using labels. You can select a range of rows or columns using labels or by position. 
+    8. 
+    
 Q6. Which of the following is mutable in nature Series, DataFrame, Panel?
 
-
-
+    1. Series Objects are value-mutable but size-immutable objects. Vector operation means that if you apply a function or expression then it is individually applied on each item of the object.
+    2.DataFrames are mutable, module`s concept is to create practical data analysis from labelled data correlated to an index. The DataFrame is therefore mutable; data can be added, updated or deleted.
+    3.Panel is a 3-D, size-mutable array.
+    
 Q7. Create a DataFrame using multiple Series. Explain with an example.
+    
+    import pandas as pd
+    Name = ['Alice', 'Bob', 'Claire']
+    Age = [25, 30, 27]
+    Gender= ['Female', 'Male', 'Female']
+    pd.DataFrame([pd.Series(Name),pd.Series(Age), pd.Series(Gender)])
