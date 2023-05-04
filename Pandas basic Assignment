@@ -1,9 +1,12 @@
 Q1. Create a Pandas Series that contains the following data: 4, 8, 15, 16, 23, and 42. Then, print the series.
 
+    import pandas as pd
+    data = [4, 8, 15, 16, 23, 42]
+    data_series = pd.Series(data)
+    data_series # prints the series
+    type(data_series) # type of data i.e., pandas.core.series.Series
 
-
-Q2. Create a variable of list type containing 10 elements in it, and apply pandas.Series function on the
-variable print it.
+Q2. Create a variable of list type containing 10 elements in it, and apply pandas.Series function on the variable print it.
 
 
 
