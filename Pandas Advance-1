@@ -1,8 +1,27 @@
 Q1. List any five functions of the pandas library with execution.
 
+  1. read_csv()
+    This is one of the most crucial pandas methods in Python. read_csv() function helps read a comma-separated values (csv) file into a Pandas DataFrame. All you need to do is mention the path of the file you want it to read. It can also read files separated by delimiters other than comma, like | or tab.
 
+    Python Code:
+        data_frame = pd.read_csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
+  2. head()
+     head(n) is used to return the first n rows of a dataset. By default, df.head() will return the first 5 rows of the DataFrame. If you want more/less number of rows, you can specify n as an integer.
+        data_frame.head()
+  3. describe()
+     describe() is used to generate descriptive statistics of the data in a Pandas DataFrame or Series. It summarizes central tendency and dispersion of the dataset. describe() helps in getting a quick overview of the dataset.
+        data_frame.describe()
+  4.  sort_values()
+      sort_values() is used to sort column in a Pandas DataFrame (or a Pandas Series) by values in ascending or descending order. By specifying the inplace attribute as True, you can make a change directly in the original DataFrame.
+        data_frame.sort_values(by='Name', inplace=True)
+  5. fillna()
+      Typically in a large dataset, you will find several entries labelled NaN by Python. NaN stands for “not a number”, and represents entries that were not populated in the original data source. While populating the values in the DataFrame, Pandas makes sure that these entries can be identified separately by the user.
 
-
+      fillna() helps to replace all NaN values in a DataFrame or Series by imputing these missing values with more appropriate values.
+        
+        data_frame.fillna("pakkir")
+        
+        
 Q2. Given a Pandas DataFrame df with columns 'A', 'B', and 'C', write a Python function to re-index the
 DataFrame with a new index that starts from 1 and increments by 2 for each row.
 
