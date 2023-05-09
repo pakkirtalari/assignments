@@ -47,17 +47,28 @@ calculate and print the sum of the first three values, which is 60.
 Q4. Given a Pandas DataFrame df with a column 'Text', write a Python function to create a new column
 'Word_Count' that contains the number of words in each row of the 'Text' column.
 
-
+    import pandas as pd
+    df = pd.DataFrame({'Text' : ['Pakkir','Akshay','Abhi'] })
+    df['Word_Count'] = df['Text'].apply(lambda x: len(x))
 
 
 Q5. How are DataFrame.size() and DataFrame.shape() different?
 
 
-
-
+    Pandas DataFrame size():
+      The size property is used to get an int representing the number of elements in this object and Return the number of rows if Series. Otherwise, return the number of rows times the number of columns if DataFrame.
+    Syntax: dataframe.size
+    Return : Returns size of dataframe/series which is equivalent to total number of elements. That is rows x columns.
+    
+    Pandas DataFrame shape()
+      The shape property is used to get a tuple representing the dimensionality of the Pandas DataFrame.
+    Syntax: dataframe.shape
+    Return : Returns tuple of shape (Rows, columns) of dataframe/series
+    
 Q6. Which function of pandas do we use to read an excel file?
 
-
+    Pandas read_excel() function is used for reading the excel files. Files can be imported using a URL link or can be directly imported from the disk. 
+    There are different parameters like io for path,sheet_name for specifying the name of the sheet, etc. for reading the file.
 
 
 Q7. You have a Pandas DataFrame df that contains a column named 'Email' that contains email
