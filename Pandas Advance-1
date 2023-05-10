@@ -80,7 +80,13 @@ function should extract the username from each email address and store it in the
 column.
 
 
+          import pandas as pd
+          df = pd.DataFrame({'Email' : ['pakkir@gmail.com','akshay@gmail.com','abhi@gmail.com','bhoomi@gmail.com','tharunika@gmail.com']})
+          def extract_username(df):
+              df['Username'] = df['Email'].apply(lambda x: x.split('@')[0])
+              return df
 
+          extract_username(df)
 
 
 Q8. You have a Pandas DataFrame df with columns 'A', 'B', and 'C'. Write a Python function that selects
@@ -94,5 +100,10 @@ For example, if df contains the following values:
                                                   3 2 3 5
                                                   4 9 1 2
                                                   
-                                                  
+                  import pandas as pd
+                  df = pd.DataFrame({'A' : [3,8,6,2,9], 'B' : [5,2,9,3,1], 'C' : [1,7,4,5,2]})
+                  def select_rows(df):
+                      new_df = df[(df['A'] > 5) & (df['B'] < 10)]
+                      return new_df
+                  select_rows(df)                          
                                                   
