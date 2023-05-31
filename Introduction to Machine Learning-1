@@ -1,37 +1,56 @@
 Q1 Explain the following with an example
     1) Artificial Intelligence
+    
+        Artificial intelligence is the simulation of human intelligence processes by machines, especially computer systems. 
+        Specific applications of AI include expert systems, natural language processing, speech recognition and machine vision.
+    
     2) Machine Learning
+    
+        Machine learning (ML) is a type of artificial intelligence (AI) that allows software applications to become more accurate at predicting outcomes without being explicitly programmed to do so. Machine learning algorithms use historical data as input to predict new output values.
+        Recommendation engines are a common use case for machine learning. Other popular uses include fraud detection, spam filtering, malware threat detection, business process automation (BPA) and Predictive maintenance.
+    
     3) Deep Learning
     
-    
+        Deep learning is a subset of machine learning, which is essentially a neural network with three or more layers. 
+        These neural networks attempt to simulate the behavior of the human brain—albeit far from matching its ability—allowing it to “learn” from large amounts of data.
     
 Q2- What is supervised learning? List some examples of supervised learning?.
 
-
+        Supervised learning, also known as supervised machine learning, is a subcategory of machine learning and artificial intelligence. It is defined by its use of labeled datasets to train algorithms that to classify data or predict outcomes accurately. As input data is fed into the model, it adjusts its weights until the model has been fitted appropriately, which occurs as part of the cross validation process. 
+        Supervised learning helps organizations solve for a variety of real-world problems at scale, such as classifying spam in a separate folder from your inbox.
 
 Q3- GWhat is unsupervised learning? List some examples of unsupervised learning.
 
-
+        Unsupervised machine learning and supervised machine learning are frequently discussed together. Unlike supervised learning, unsupervised learning uses unlabeled data. From that data, it discovers patterns that help solve for clustering or association problems. This is particularly useful when subject matter experts are unsure of common properties within a data set. Common clustering algorithms are hierarchical, k-means, and Gaussian mixture models.
 
 Q4- What is the difference between AI, ML, DL, and DS?
 
+        🔹Artificial Intelligence (AI) enables machines to think by understanding, learning from the data, and taking decisions based on patterns hidden in the data or make inferences that would otherwise be very difficult for humans to make manually. The end goal of using ML or DL is to create an AI application or machine as smart as humans.
 
+        🔹Machine Learning (ML) is a subset of AI; it provides us statistical tools/techniques like Supervised, Unsupervised, and Reinforcement learning to explore and analyze the data.
+
+        🔹Deep Learning (DL) is further a subset of ML, and the main idea behind it is to make machines learn by mimicking the human brain. Here, we create a multi neural network architecture with the help of different techniques like ANN, CNN, and RNN.
+
+        🔹Data Science (DS) is basically drawing insights from structured and unstructured data either by using ML or DL or without these techniques. We can even use different visualization tools, statistics, and probability to gain these insights.
 
 Q5- What are the main difference between supervised, unsupervised, and semi-supervised learning?
 
-
+        The main difference between supervised and unsupervised learning: Labeled data. The main distinction between the two approaches is the use of labeled datasets. 
+        To put it simply, supervised learning uses labeled input and output data, while an unsupervised learning algorithm does not.
+        Semi-supervised learning is the type of machine learning that uses a combination of a small amount of labeled data and a large amount of unlabeled data to train models.
 
 Q6- What is train, test and validation split? Explain the importance of each term.
 
-
+        Training data is the set of the data on which the actual training takes place. 
+        Validation split helps to improve the model performance by fine-tuning the model after each epoch. 
+        The test set informs us about the final accuracy of the model after completing the training phase.
 
 Q7- How can unsupervised learning be used in anomaly detection?
 
+        Unsupervised anomaly detection involves an unlabeled dataset. It assumes that the majority data points in the unlabeled dataset are “normal” and it looks for data points that differs from the “normal” data points.
 
+Q8- List down some commonly used supervised learning algorithms and unsupervised learning algorithms.
 
-
-Q8- List down some commonly used supervised learning algorithms and unsupervised learning
-algorithms.
-
-
+        The most commonly used Supervised Learning algorithms are decision tree, logistic regression, linear regression, support vector machine. 
+        The most commonly used Unsupervised Learning algorithms are k-means clustering, hierarchical clustering, and apriori algorithm.
 
