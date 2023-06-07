@@ -1,8 +1,14 @@
 Q1: What are missing values in a dataset? Why is it essential to handle missing values? Name some
 algorithms that are not affected by missing values.
 
+Missing data, or missing values, occur when you don't have data stored for certain variables or participants. 
+Data can go missing due to incomplete data entry, equipment malfunctions, lost files, and many other reasons. 
 
+It is important to handle missing values as they can lead to inaccurate conclusions about the data, which can significantly impact the accuracy of the analysis. 
+There are several methods available to handle missing values, such as removal, imputation, flagging, etc.
 
+All the machine learning algorithms don’t support missing values but some ML algorithms are robust to missing values in the dataset. The k-NN algorithm can ignore a column from a distance measure when a value is missing. 
+Naive Bayes can also support missing values when making a prediction. These algorithms can be used when the dataset contains null or missing values.
 
 Q2: List down techniques used to handle missing data. Give an example of each with python code.
 
