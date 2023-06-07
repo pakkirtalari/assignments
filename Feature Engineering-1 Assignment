@@ -11,45 +11,170 @@ All the machine learning algorithms don’t support missing values but some ML a
 Naive Bayes can also support missing values when making a prediction. These algorithms can be used when the dataset contains null or missing values.
 
 Q2: List down techniques used to handle missing data. Give an example of each with python code.
-
-
-
+  
+  1. Drop rows or columns that have a missing value - With the default parameter values, the dropna function drops the rows that contain any missing value.
+      df.dropna()
+  2.  Drop rows or columns that only have missing values - Another situation is to have a column or row that is full of missing values. Such columns or rows are useless so we can drop them.
+      The dropna function can be used for this as well. We just need to change the value of how parameter.
+      df.dropna(how="all")
+  3. Drop rows or columns based on a threshold value:-
+     Dropping based on “any” or “all” is not always the best option. We sometimes need to drop rows or columns with “lots of” or “some” missing values.
+     We cannot assign such expressions to the how parameter but Pandas gives us a more accurate way which is the thresh parameter.
+     For instance, “thresh=4” means that the rows that have at least 4 non-missing values will be kept. The other ones will be dropped.
+      df.dropna(“thresh=4”)
+  4. Drop based on a particular subset of columns:-
+    We can take only some of the columns into consideration when dropping columns.
+    The subset parameter of the dropna function is used for this task. 
+    For instance, we can drop the rows that have a missing value in measure 1 or measure 2 columns as follows:
+    df.dropna(subset = ["Measure_1", "Measure_3"])
+  5. Fill with a constant value:-
+    We can choose a constant value to be used as a replacement for the missing values.
+    If we just give one constant value to the fillna function, it will replace all the missing values in the data frame with that value.
+    A more reasonable method is to determine separate constant values for different columns. We can write them in a dictionary and pass it to the values parameter.
+    values = {"Item": 1014, "Measure_1": 0} 
+    df.fillna(value=values)
+    The missing values in the item column are replaced with 1014 and the ones in the measure 1 column are replaced with 0.
+ 6. Fill with an aggregated value
+    Another option is to use an aggregated value such as mean, median, or mode.
+    The following line of code replaces the missing values in the measure 2 column with the average value of this column.
+    df[ "Measure_2"].fillna(df[ "Measure_2"].mean())
+ 7. Replace with the previous or next value:-
+    It is possible to replace the missing values in a column with the previous or next value in that column.
+    This method might come in handy when working with time-series data. Consider you have a data frame that contains the daily temperature measurement and the temperate in one day is missing. 
+    The optimal solution would be to use the temperature in the next or previous day.
+    The method parameter of the fillna function is used for performing this task.
+    The “bfill” fills the missing values backward so they are replaced with the next value.
+    Take a look at the last column. The missing values are replaced up to the first row. This may not be suitable for some cases.
+    Thankfully, we can limit the number of missing values replaced with this method. If we set the limit parameter as 1, then a missing value can only be replaced with its next value. The second or third following value will not be used for replacement.
+ 
 Q3: Explain the imbalanced data. What will happen if imbalanced data is not handled?
+    A classification data set with skewed class proportions is called imbalanced. Classes that make up a large proportion of the data set are called majority classes. 
+    Those that make up a smaller proportion are minority classes.
+    The imbalanced data are characterized as having many more instances of certain classes than others. 
+    In this case, classifiers tend to make biased learning model that has a poorer predictive accuracy over the minority classes compared to the majority classes.
 
+Q4: What are Up-sampling and Down-sampling? Explain with an example when up-sampling and down-sampling are required.
+    Up-Sampling is a "Zero-Padding Procedure" that increase the number of samples of a DT signal. 
+    More specificals, when up sampling, zeros are added between the samples of a signal. Down-Sampling is to decrease the sample size.
+        1. Up-sampling
+        Upsampling is the process of randomly duplicating observations from the
+        minority class to reinforce its signal.
+        First, we will import the resampling module from Scikit-Learn:
+        Module for resampling Python
+        1- From sklearn.utils import resample
+        Next, we will create a new Data Frame with an up-sampled minority class.
+        Here are the steps:
+        1- First, we will separate observations from each class into different Data
+        Frames.
+        2- Next, we will resample the minority class with replacement, setting the number of samples to match that of the majority class.
+        3- Finally, we'll combine the up-sampled minority class Data Frame with the original majority class Data Frame.
 
-
-Q4: What are Up-sampling and Down-sampling? Explain with an example when up-sampling and down-
-sampling are required.
-
-
+        2-Down-sampling
+        Downsampling involves randomly removing observations from the majority
+        class to prevent its signal from dominating the learning algorithm.
+        The process is similar to that of sampling. Here are the steps:
+        1-First, we will separate observations from each class into different Data
+        Frames.
+        2-Next, we will resample the majority class without replacement, setting the
+        a number of samples to match that of the minority class.
+        3-Finally, we will combine the down-sampled majority class Data Frame
+        with the original minority class Data Frame.
 
 Q5: What is data Augmentation? Explain SMOTE.
-
-
-
+      
+      Data augmentation is a technique in machine learning used to reduce overfitting when training a machine learning model, by training models on several slightly-modified copies of existing data.
+      
+      SMOTE is an algorithm that performs data augmentation by creating synthetic data points based on the original data points. 
+      SMOTE can be seen as an advanced version of oversampling, or as a specific algorithm for data augmentation.
+      
 Q6: What are outliers in a dataset? Why is it essential to handle outliers?
 
+      Outliers are the observations in a dataset that deviate significantly from the rest of the data. 
+      In any data science project, it is essential to identify and handle outliers, as they can have a significant impact on many statistical methods, such as means, standard deviations, etc., and the performance of ML models.
 
+Q7: You are working on a project that requires analyzing customer data. However, you notice that some of the data is missing. What are some techniques you can use to handle the missing data in your analysis?
 
-Q7: You are working on a project that requires analyzing customer data. However, you notice that some of
-the data is missing. What are some techniques you can use to handle the missing data in your analysis?
-
-
+      1. Drop rows or columns that have a missing value - With the default parameter values, the dropna function drops the rows that contain any missing value.
+      df.dropna()
+      2.  Drop rows or columns that only have missing values - Another situation is to have a column or row that is full of missing values. Such columns or rows are useless so we can drop them.
+          The dropna function can be used for this as well. We just need to change the value of how parameter.
+          df.dropna(how="all")
+      3. Drop rows or columns based on a threshold value:-
+         Dropping based on “any” or “all” is not always the best option. We sometimes need to drop rows or columns with “lots of” or “some” missing values.
+         We cannot assign such expressions to the how parameter but Pandas gives us a more accurate way which is the thresh parameter.
+         For instance, “thresh=4” means that the rows that have at least 4 non-missing values will be kept. The other ones will be dropped.
+          df.dropna(“thresh=4”)
+      4. Drop based on a particular subset of columns:-
+        We can take only some of the columns into consideration when dropping columns.
+        The subset parameter of the dropna function is used for this task. 
+        For instance, we can drop the rows that have a missing value in measure 1 or measure 2 columns as follows:
+        df.dropna(subset = ["Measure_1", "Measure_3"])
+      5. Fill with a constant value:-
+        We can choose a constant value to be used as a replacement for the missing values.
+        If we just give one constant value to the fillna function, it will replace all the missing values in the data frame with that value.
+        A more reasonable method is to determine separate constant values for different columns. We can write them in a dictionary and pass it to the values parameter.
+        values = {"Item": 1014, "Measure_1": 0} 
+        df.fillna(value=values)
+        The missing values in the item column are replaced with 1014 and the ones in the measure 1 column are replaced with 0.
+     6. Fill with an aggregated value
+        Another option is to use an aggregated value such as mean, median, or mode.
+        The following line of code replaces the missing values in the measure 2 column with the average value of this column.
+        df[ "Measure_2"].fillna(df[ "Measure_2"].mean())
 
 Q8: You are working with a large dataset and find that a small percentage of the data is missing. What are
 some strategies you can use to determine if the missing data is missing at random or if there is a pattern
 to the missing data?
+      When dealing with missing data in a large dataset, it is important to understand whether the missingness is random or if there is a pattern to it. Here are some strategies you can use to determine the nature of the missing data:
+      Analyze Missing Data Patterns: Examine the patterns and distribution of missing values across different variables or features in your dataset. Visualize the missingness using plots such as heatmaps or missing data matrices. If the missingness appears to be random across variables, it suggests missing data at random (MAR). On the other hand, if there are specific variables or patterns associated with missing values, it indicates missing not at random (MNAR) data.
 
+      Explore Data Collection Process: Investigate the data collection process and any potential reasons for missing values. If missingness is related to specific data collection procedures or technical issues, it might indicate a pattern to the missing data. For example, if survey respondents skipped certain questions or data points were not recorded due to a malfunctioning instrument, it suggests a non-random pattern.
 
+      Statistical Tests: Conduct statistical tests to assess the relationship between missingness and other variables in the dataset. One common approach is to perform a test of independence or association between the missingness indicator variable and other variables in the dataset. For numerical variables, you can use correlation tests or t-tests to compare the means of the complete and missing data groups. If significant relationships are found, it indicates a potential pattern to the missing data.
+
+      Multiple Imputation: Use multiple imputation techniques to estimate missing values and assess the impact of missingness on the analysis. Multiple imputation involves creating multiple plausible imputed datasets based on observed data and appropriate statistical models. By comparing the results obtained from analyzing the imputed datasets with the original incomplete dataset, you can identify if the missingness pattern affects the results significantly.
+
+      Expert Knowledge and Domain Understanding: Consult subject matter experts or individuals familiar with the data to gain insights into potential reasons for missingness. They can provide valuable context and help determine if missing data is likely to be random or patterned based on their knowledge of the data collection process and the domain.
+
+      Remember that these strategies are not mutually exclusive, and a combination of approaches might provide a more comprehensive understanding of the missing data patterns in your dataset. It is crucial to carefully consider the nature of missingness as it can impact the validity and reliability of any subsequent analyses or models built using the dataset.
 Q9: Suppose you are working on a medical diagnosis project and find that the majority of patients in the
 dataset do not have the condition of interest, while a small percentage do. What are some strategies you
 can use to evaluate the performance of your machine learning model on this imbalanced dataset?
 
+    When dealing with imbalanced datasets in a medical diagnosis project, where the majority of patients do not have the condition of interest, it is essential to employ specific strategies to evaluate the performance of your machine learning model accurately. Here are some strategies you can use:
 
+    Class Distribution Analysis: Start by understanding the class distribution in your dataset. Calculate the percentage of positive and negative instances in the dataset to get a clear idea of the class imbalance. This analysis will help you determine the severity of the imbalance and guide subsequent steps.
+
+    Resampling Techniques: Imbalanced datasets can benefit from resampling techniques to address the class imbalance. Two common approaches are:
+
+    a. Undersampling: Randomly remove instances from the majority class to reduce its dominance in the dataset. However, be cautious not to remove too much information, as it may result in the loss of important patterns.
+
+    b. Oversampling: Increase the number of instances in the minority class by replicating or generating synthetic samples. Techniques like Synthetic Minority Over-sampling Technique (SMOTE) can be used to generate synthetic samples based on the characteristics of existing minority class instances.
+
+    The choice between undersampling and oversampling depends on the specific dataset and problem at hand. You can experiment with different approaches and evaluate their impact on model performance.
+
+    Evaluation Metrics: In imbalanced datasets, accuracy alone may not provide an accurate representation of model performance, as it can be biased towards the majority class. Instead, focus on evaluation metrics that are more suitable for imbalanced datasets, such as:
+
+    a. Precision and Recall: Precision (also known as Positive Predictive Value) measures the proportion of correctly predicted positive instances out of all predicted positive instances. Recall (also known as Sensitivity or True Positive Rate) measures the proportion of correctly predicted positive instances out of all actual positive instances. These metrics provide insights into how well the model is performing for the minority class.
+
+    b. F1 Score: The F1 score is the harmonic mean of precision and recall. It provides a balanced measure between the two and is useful when you want to find a trade-off between precision and recall.
+
+    c. Area Under the Receiver Operating Characteristic Curve (AUC-ROC): The AUC-ROC measures the model's ability to discriminate between positive and negative instances across different probability thresholds. It considers the entire range of classification thresholds and provides an aggregated performance measure.
+
+    Cross-Validation: Use robust cross-validation techniques to evaluate your model. Stratified sampling methods, such as Stratified K-fold or Stratified Shuffle Split, can ensure that the class distribution is maintained in each fold of the cross-validation process. This helps provide a more reliable estimate of model performance.
+
+    Ensemble Methods: Ensemble methods, such as bagging or boosting, can help improve the performance of models on imbalanced datasets. These techniques combine multiple models to make predictions, reducing the impact of class imbalance and improving generalization.
+
+    Cost-Sensitive Learning: Assign different misclassification costs to different classes based on the importance of correctly identifying each class. This approach encourages the model to focus more on the minority class during training and can improve performance on imbalanced datasets.
+
+    Data Augmentation: If applicable, consider data augmentation techniques to increase the diversity of the minority class instances. This can involve techniques like flipping, rotation, scaling, or introducing noise to the existing instances, thus creating more training data for the minority class.
+
+    It's important to note that the choice of strategy depends on the specifics of your dataset and the problem at hand. It may require experimentation and fine-tuning to find the best approach for your medical diagnosis project.
 
 Q10: When attempting to estimate customer satisfaction for a project, you discover that the dataset is
 unbalanced, with the bulk of customers reporting being satisfied. What methods can you employ to
 balance the dataset and down-sample the majority class?
+
+    Random Undersampling, Cluster-Based Undersampling, Edited Nearest Neighbors (ENN), Synthetic Minority Over-sampling Technique (SMOTE)
 
 
 
@@ -57,4 +182,18 @@ Q11: You discover that the dataset is unbalanced with a low percentage of occurr
 project that requires you to estimate the occurrence of a rare event. What methods can you employ to
 balance the dataset and up-sample the minority class?
 
+      Random Oversampling: Randomly duplicate instances from the minority class to increase its representation in the dataset. This simple approach can help balance the dataset, but it may also introduce the risk of overfitting if the same instances are repeated too often.
 
+      Synthetic Minority Over-sampling Technique (SMOTE): Generate synthetic instances for the minority class by interpolating between existing instances. SMOTE selects a minority class instance and its k nearest neighbors, then creates synthetic instances along the line segments connecting them. This technique helps increase the number of minority class instances and diversifies the dataset.
+
+      Adaptive Synthetic Sampling (ADASYN): Similar to SMOTE, ADASYN generates synthetic instances for the minority class. However, it applies a weighting mechanism that focuses on generating synthetic instances for instances that are harder to learn, thus emphasizing more challenging areas of the minority class distribution.
+
+      SMOTE-ENN: Combine the SMOTE oversampling technique with the Edited Nearest Neighbors (ENN) undersampling technique. After applying SMOTE, use ENN to remove any instances from both classes that are misclassified by the k-nearest neighbors algorithm. This combination can help refine the minority class representation.
+
+      Borderline-SMOTE: Focus on generating synthetic instances for the minority class along the decision boundary. Borderline-SMOTE identifies borderline instances that are difficult to classify and synthesizes new instances specifically for these areas, thereby increasing the minority class representation.
+
+      Synthetic Minority Over-sampling TEchnique for Nominal and Continuous (SMOTE-NC): An extension of SMOTE that is suitable for datasets with a combination of nominal and continuous features. SMOTE-NC generates synthetic instances by synthesizing feature values based on the feature type.
+
+      Ensemble Methods: Utilize ensemble methods, such as bagging or boosting, to improve the performance on imbalanced datasets. These methods combine multiple models to make predictions, effectively leveraging the up-sampled minority class instances and addressing the class imbalance.
+
+      Collect More Data: If feasible, collect additional data for the minority class. This can help improve the representation and balance of the dataset naturally. However, acquiring more data might not always be possible or practical.
