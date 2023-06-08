@@ -1,0 +1,36 @@
+Q1. What is Min-Max scaling, and how is it used in data preprocessing? Provide an example to illustrate its application.
+
+
+
+Q2. What is the Unit Vector technique in feature scaling, and how does it differ from Min-Max scaling? Provide an example to illustrate its application.
+
+
+
+Q3. What is PCA (Principle Component Analysis), and how is it used in dimensionality reduction? Provide an example to illustrate its application.
+
+
+
+Q4. What is the relationship between PCA and Feature Extraction, and how can PCA be used for Feature Extraction? Provide an example to illustrate this concept.
+
+
+
+Q5. You are working on a project to build a recommendation system for a food delivery service. The dataset contains features such as price, rating, and delivery time. 
+    Explain how you would use Min-Max scaling to preprocess the data.
+    
+    
+    
+Q6. You are working on a project to build a model to predict stock prices. The dataset contains many features, such as company financial data and market trends. 
+    Explain how you would use PCA to reduce the dimensionality of the dataset.
+    
+    
+    
+Q7. For a dataset containing the following values: [1, 5, 10, 15, 20], perform Min-Max scaling to transform the values to a range of -1 to 1.
+
+
+
+Q8. For a dataset containing the following features: [height, weight, age, gender, blood pressure], perform Feature Extraction using PCA. 
+    How many principal components would you choose to retain, and why?
+    
+    
+    
+    
