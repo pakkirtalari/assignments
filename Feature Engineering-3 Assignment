@@ -1,10 +1,25 @@
 Q1. What is Min-Max scaling, and how is it used in data preprocessing? Provide an example to illustrate its application.
 
-
+    the minimum of feature is made equal to zero and the maximum of feature equal to one. MinMax Scaler shrinks the data within the given range, usually of 0 to 1. 
+    It transforms data by scaling features to a given range.It scales the values to a specific value range without changing the shape of the original distribution.
+        df1 = sns.load_dataset("planets")
+        df1.head()
+        from sklearn.preprocessing import MinMaxScaler
+        scaler = MinMaxScaler()
+        scaler.fit_transform(df1[['mass', 'distance']])
 
 Q2. What is the Unit Vector technique in feature scaling, and how does it differ from Min-Max scaling? Provide an example to illustrate its application.
 
-
+    The Unit Vector technique, also known as normalization, is a feature scaling method that rescales the values of a feature into a range between 0 and 1. 
+    It involves dividing each value of the feature by the maximum absolute value of that feature across the dataset.
+    The Unit Vector technique ensures that all feature values are proportionally scaled based on their maximum absolute value. As a result, the data is transformed so that the maximum absolute value becomes 1, and all other values are scaled proportionally.
+    On the other hand, Min-Max scaling is another popular feature scaling technique. It also rescales the feature values to a specific range, typically between 0 and 1. However, Min-Max scaling uses a different approach. 
+    It subtracts the minimum value of the feature and then divides by the range (i.e., the difference between the maximum and minimum values) of that feature. 
+    
+    df = sns.load_dataset('taxis')
+    from sklearn.preprocessing import normalize
+    normalize(df[['distance','fare','tip']])
+    
 
 Q3. What is PCA (Principle Component Analysis), and how is it used in dimensionality reduction? Provide an example to illustrate its application.
 
