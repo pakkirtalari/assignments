@@ -23,29 +23,120 @@ Q2. What is the Unit Vector technique in feature scaling, and how does it differ
 
 Q3. What is PCA (Principle Component Analysis), and how is it used in dimensionality reduction? Provide an example to illustrate its application.
 
+    It works on the condition that while the data in a higher dimensional space is mapped to data in a lower dimension space, the variance of the data in the lower dimensional space should be maximum.
+    The main goal of Principal Component Analysis (PCA) is to reduce the dimensionality of a dataset while preserving the most important patterns or relationships between the variables without any prior knowledge of the target variables. 
+    Principal Component Analysis (PCA) is used to reduce the dimensionality of a data set by finding a new set of variables, smaller than the original set of variables, retaining most of the sample’s information, and useful for the regression and classification of data.
+    
+    Let's say we have a dataset with five variables: height, weight, age, income, and education level. Each observation in the dataset represents a person. The dataset has a large number of observations, but we suspect that these five variables may contain redundant or highly correlated information.
+        To reduce the dimensionality of the dataset using PCA, we would perform the following steps:
+        Standardize the data: Since the variables are measured on different scales, it's necessary to standardize them to have zero mean and unit variance. This ensures that no variable dominates the PCA process simply due to its scale.
+        Compute the covariance matrix: Calculate the covariance matrix of the standardized data. The covariance matrix represents the relationships between the variables and helps identify the underlying structure.
+        Compute the principal components: Find the eigenvectors and eigenvalues of the covariance matrix. The eigenvectors represent the directions of maximum variance in the data, and the eigenvalues indicate the amount of variance explained by each eigenvector.
+        Select the principal components: Sort the eigenvalues in descending order and select the top k eigenvectors that capture the most significant amount of variation. These eigenvectors form the new basis for the reduced-dimensional space.
+        Transform the data: Project the original data onto the selected principal components to obtain the reduced-dimensional representation.
+    By applying PCA to the example dataset, we may find that the first two principal components explain most of the variability in the data. 
+    This implies that the information contained in the five original variables can be mostly captured by a combination of two new variables. 
+    We can then visualize the data in the reduced-dimensional space, which may help reveal patterns, clusters, or relationships that were not apparent in the original high-dimensional data.
 
-
+    
 Q4. What is the relationship between PCA and Feature Extraction, and how can PCA be used for Feature Extraction? Provide an example to illustrate this concept.
 
+    PCA can be used as a feature extraction technique. Feature extraction involves transforming the original set of variables (features) into a new set of features that represent the data in a more informative and compact way. PCA, in particular, is a popular method for feature extraction.
+    In the context of feature extraction, PCA identifies the most important patterns or directions of maximum variance in the data. These patterns are captured by the principal components, which are linear combinations of the original features. By selecting a subset of the principal components, we can effectively reduce the dimensionality of the data and extract the most informative features.
+    Here's an example to illustrate how PCA can be used for feature extraction:
+    Let's consider a dataset with several numerical features describing various characteristics of houses, such as size, number of rooms, location, age, and so on. We want to extract a smaller set of features that capture the most important information about the houses.
 
+        Preprocess the data: Standardize the numerical features to have zero mean and unit variance. This step is crucial to ensure that features with larger scales do not dominate the PCA process.
+        Perform PCA: Apply PCA to the standardized dataset. Calculate the covariance matrix, compute the eigenvalues and eigenvectors, and sort them in descending order.
+        Select the number of components: Determine the number of principal components to retain. This decision depends on various factors, such as the explained variance ratio and the desired dimensionality of the reduced feature set.
+        Extract the features: Select the top k principal components based on the chosen number. These components represent the new set of features derived from the original dataset.
+        Transform the data: Project the standardized data onto the selected principal components to obtain the reduced-dimensional representation. This transformed data contains the extracted features.
+
+    The resulting transformed data represents the original dataset in a reduced-dimensional space, with each observation represented by a smaller set of features derived from the principal components. These features are constructed to capture the most significant patterns or variances present in the original data.
 
 Q5. You are working on a project to build a recommendation system for a food delivery service. The dataset contains features such as price, rating, and delivery time. 
     Explain how you would use Min-Max scaling to preprocess the data.
     
-    
+    Min-Max scaling, also known as normalization, is a common technique used to transform the values of numerical features to a common range, typically between 0 and 1. This ensures that all the features have a similar scale and prevents features with larger values from dominating the analysis.
+
+    Here's how you can use Min-Max scaling to preprocess the data:
+
+        Identify the features: Determine which features in the dataset need to be scaled using Min-Max scaling. In this case, we have the features price, rating, and delivery time.
+
+        Define the range: Decide on the desired range for the scaled values. The most common range is between 0 and 1, where 0 represents the minimum value in the original feature, and 1 represents the maximum value.
+
+        Calculate the minimum and maximum values: Find the minimum and maximum values for each feature in the dataset. These values will be used in the scaling process.
+
+        Apply the Min-Max scaling formula: For each feature, use the following formula to calculate the scaled value for each data point:
+
+        scaled_value = (original_value - min_value) / (max_value - min_value)
+
+        In this formula, "original_value" represents the value of the feature for a specific data point, "min_value" represents the minimum value of the feature in the dataset, and "max_value" represents the maximum value of the feature in the dataset.
+
+        Scale the features: Apply the Min-Max scaling formula to all the data points for each feature. This will transform the values of each feature to the desired range (0 to 1).
+
+        import pandas as pd
+        df = pd.DataFrame({'price':[250,140,130,150,170,155,165], 'rating':[4.5,5,4.2,4,4.3,4.8,5], 'delivery_time':[10,9,12,15,8,10,9]})
+        from sklearn.preprocessing import MinMaxScaler
+        scaler = MinMaxScaler()
+        scaler.fit_transform(df[['price','rating','delivery_time']])
+
+    By using Min-Max scaling, the features price, rating, and delivery time will be normalized to the range between 0 and 1. This ensures that the values of these features are on a similar scale, allowing for fair comparisons and preventing any single feature from dominating the recommendation system.
+
+    It's important to note that Min-Max scaling assumes a linear relationship between the original and scaled values. If there are outliers present in the data, they can affect the scaling process. Additionally, if the dataset contains features with different scales, it may be beneficial to consider other scaling techniques, such as standardization (z-score scaling), which takes into account the mean and standard deviation of the feature values.
     
 Q6. You are working on a project to build a model to predict stock prices. The dataset contains many features, such as company financial data and market trends. 
     Explain how you would use PCA to reduce the dimensionality of the dataset.
     
-    
-    
+    When working on a project to predict stock prices with a dataset containing numerous features, Principal Component Analysis (PCA) can be employed to reduce the dimensionality of the dataset. By reducing the dimensionality, PCA simplifies the complexity of the dataset and potentially uncovers the underlying structure, making it easier to model and analyze.
+
+    Here's how you can use PCA to reduce the dimensionality of the stock price prediction dataset:
+
+        Identify the features: Determine the set of features in the dataset that you want to use for predicting stock prices. These features may include company financial data (e.g., revenue, earnings, debt) and market trends (e.g., stock market indices, interest rates).
+
+        Preprocess the data: Before applying PCA, it's essential to preprocess the data. This typically involves handling missing values, normalizing or standardizing the features to have zero mean and unit variance, and addressing any other data-specific preprocessing steps.
+
+        Apply PCA: Once the data is preprocessed, apply PCA to the standardized dataset. PCA calculates the covariance matrix of the features and computes the eigenvalues and eigenvectors associated with the covariance matrix.
+
+        Determine the number of components: Analyze the eigenvalues to determine the number of principal components to retain. The eigenvalues represent the amount of variance explained by each principal component. You can sort the eigenvalues in descending order and select the top components that capture the significant amount of variance. A common approach is to set a threshold (e.g., retaining components that explain, say, 90% of the variance).
+
+        Select the principal components: Based on the determined number of components, select the corresponding eigenvectors (principal components) that capture the most important information from the original features. These eigenvectors will form the reduced-dimensional space for the dataset.
+
+        Transform the data: Project the standardized data onto the selected principal components to obtain the reduced-dimensional representation. This transformed data contains the extracted features, which are linear combinations of the original features. It represents the dataset in a lower-dimensional space.
+
+    By applying PCA, you can reduce the dimensionality of the stock price prediction dataset while preserving the most important information or patterns. This simplification can help mitigate the curse of dimensionality and improve the model's efficiency and interpretability. The reduced-dimensional dataset, represented by the principal components, can be used as input for various machine learning algorithms, such as regression models, to predict stock prices.
+
+    It's important to note that while PCA reduces the dimensionality, it may result in some loss of information compared to the original feature set. Therefore, it's crucial to strike a balance between dimensionality reduction and retaining sufficient predictive power for the stock price prediction task.
+
 Q7. For a dataset containing the following values: [1, 5, 10, 15, 20], perform Min-Max scaling to transform the values to a range of -1 to 1.
 
-
+    import pandas as pd
+    df = pd.DataFrame({'values':[1, 5, 10, 15, 20]})
+    from sklearn.preprocessing import MinMaxScaler
+    scaler = MinMaxScaler()
+    scaler.fit_transform(df[['values']])
 
 Q8. For a dataset containing the following features: [height, weight, age, gender, blood pressure], perform Feature Extraction using PCA. 
     How many principal components would you choose to retain, and why?
     
-    
+    To perform feature extraction using PCA on the given dataset with features [height, weight, age, gender, blood pressure], we need to determine the number of principal components to retain. The decision of how many principal components to keep depends on various factors, including the desired level of dimensionality reduction, the explained variance ratio, and the specific requirements of the application.
+
+    Here's a general approach to determine the number of principal components to retain:
+
+        Standardize the data: Since the features in the dataset may have different scales, it's important to standardize them to have zero mean and unit variance. This ensures that no single feature dominates the PCA process based on its scale.
+
+        Compute the covariance matrix: Calculate the covariance matrix of the standardized data. The covariance matrix provides information about the relationships between the features and serves as the basis for PCA.
+
+        Compute the eigenvalues: Compute the eigenvalues and eigenvectors of the covariance matrix. The eigenvalues represent the amount of variance explained by each principal component.
+
+        Analyze the eigenvalues: Sort the eigenvalues in descending order. The eigenvalues that are higher indicate that the corresponding principal components capture more variance in the data.
+
+        Decide on the number of components: Determine the number of principal components to retain based on the cumulative explained variance ratio. The cumulative explained variance ratio represents the proportion of total variance explained by a certain number of principal components. A common threshold is to retain enough components to explain a substantial portion of the variance, such as 90% or 95%.
+
+    For example, if the cumulative explained variance ratio reaches 90% with the first three principal components, it means that these three components capture 90% of the variance in the data. In this case, you may choose to retain these three components as they provide a good balance between dimensionality reduction and retaining important information.
+
+    However, the specific choice of the number of principal components to retain ultimately depends on the specific dataset, the application requirements, and any domain knowledge. It's important to consider the trade-off between reducing dimensionality and preserving information when making this decision.
+
+    Therefore, without additional information about the dataset and the application context, it is not possible to definitively determine the number of principal components to retain.
     
     
