@@ -2,21 +2,52 @@ Q1. Pearson correlation coefficient is a measure of the linear relationship betw
 you have collected data on the amount of time students spend studying for an exam and their final exam
 scores. Calculate the Pearson correlation coefficient between these two variables and interpret the result.
 
+  import pandas as pd
+  df = pd.DataFrame({'time_spent':[5,8,6,9,10,4,2,10,8,7], 'scores':[35,76,53,81,95,28,16,94,78,62]})
 
+  import numpy as np 
+  df.corr(method='pearson')
+
+  output = 0.99 (correlation coeffient between the time spent and scores they got)
+  As the Pearson correlation coefficient is close to 1, it indicates a strong positive linear relationship. 
+  This means that as the amount of time students spend studying increases, their final exam scores tend to increase as well.
+  
 
 Q2. Spearman's rank correlation is a measure of the monotonic relationship between two variables.
 Suppose you have collected data on the amount of sleep individuals get each night and their overall job
 satisfaction level on a scale of 1 to 10. Calculate the Spearman's rank correlation between these two
 variables and interpret the result.
 
+  import pandas as pd
+  df = pd.DataFrame({'sleeping_hours':[5,8,6,4,6,4,5,7,8,7], 'satisfaction_level':[4,9,7,3,6,3,5,7,10,9]})
 
-
+  import numpy as np 
+  df.corr(method='spearman')
+  
+  As the Spearman's rank correlation coefficient is close to 1, it indicates a strong positive monotonic relationship. This means that as the amount of sleep individuals get each night increases, their overall job satisfaction tends to increase as well. 
+  The ranks of the variables move in the same direction.
+  
 Q3. Suppose you are conducting a study to examine the relationship between the number of hours of
 exercise per week and body mass index (BMI) in a sample of adults. You collected data on both variables
 for 50 participants. Calculate the Pearson correlation coefficient and the Spearman's rank correlation
 between these two variables and compare the results.
 
-
+   df = pd.DataFrame({'no_hours' : [4.5, 7.2, 3.8, 5.1, 6.3, 2.9, 4.7, 6.5, 3.2, 5.8,4.5, 7.2, 3.8, 5.1, 6.3, 2.9, 4.7, 6.5, 3.2, 5.8,4.5, 7.2, 3.8, 5.1, 6.3, 2.9, 4.7, 6.5, 3.2, 5.8,4.5, 7.2, 3.8, 5.1, 6.3, 2.9, 4.7, 6.5, 3.2, 5.8,4.5, 7.2, 3.8, 5.1, 6.3, 2.9, 4.7, 6.5, 3.2, 5.8],
+  'bmi' : [23.2, 25.1, 21.5, 24.9, 27.8, 20.3, 22.6, 26.5, 19.8,23.7,23.2, 25.1, 21.5, 24.9, 27.8, 20.3, 22.6, 26.5, 19.8,23.7,23.2, 25.1, 21.5, 24.9, 27.8, 20.3, 22.6, 26.5, 19.8,23.7,23.2, 25.1, 21.5, 24.9, 27.8, 20.3, 22.6, 26.5, 19.8,23.7,23.2, 25.1, 21.5, 24.9, 27.8, 20.3, 22.6, 26.5, 19.8,23.7]})
+  import numpy as np 
+  cor_sp = df.corr(method='spearman')
+  cor_pear = df.corr(method='pearson')
+  print(cor_sp)
+  print(cor_pear)
+  
+  The Pearson correlation coefficient of 0.88 suggests a moderate positive linear relationship between the number of hours of exercise per week and BMI. 
+  It indicates that as the number of hours of exercise per week increases, the BMI tends to increase, although the relationship is not extremely strong.
+  
+  The Spearman's rank correlation coefficient of 0.92 indicates a strong positive monotonic relationship between the number of hours of exercise per week and BMI. 
+  It suggests that as the number of hours of exercise per week increases, the BMI tends to increase monotonically.
+  
+  In this case, both the Pearson correlation coefficient (r = 0.88) and the Spearman's rank correlation coefficient (ρ = 0.92) suggest a positive relationship between the number of hours of exercise per week and BMI. 
+  However, the Spearman's rank correlation coefficient captures the monotonic relationship more accurately and is less sensitive to outliers or non-linear relationships.
 
 Q4. A researcher is interested in examining the relationship between the number of hours individuals
 spend watching television per day and their level of physical activity. The researcher collected data on
