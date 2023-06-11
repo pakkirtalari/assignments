@@ -54,7 +54,12 @@ spend watching television per day and their level of physical activity. The rese
 both variables from a sample of 50 participants. Calculate the Pearson correlation coefficient between
 these two variables.
 
-
+  import pandas as pd
+  df = pd.DataFrame({'TV_hours' : [3.5	, 2.8	, 4.2	,2.1	,3.9	,2.4	,3.1	,2.7	,3.8	,2.5], 'Physical_activity' : [2.7, 3.1, 2.5, 3.4, 2.9, 3.2, 3.0, 3.3, 2.6, 3.1]})
+  import numpy as np
+  df.corr('pearson')
+  
+  As pearson's correlation coeffient is close to -1, it indicates a strong negative linear relationship between the variables. As one variable increases, the other tends to decrease.
 
 
 Q5. A survey was conducted to examine the relationship between age and preference for a particular
@@ -63,11 +68,33 @@ brand of soft drink. The survey results are shown below:
 Age(Years) = [25 , 42, 37, 19, 31, 28]
 Soft drink Preference = [Coke, Pepsi, Mountain dew, Coke, Pepsi, Coke]
 
+  import pandas as pd
+  df = pd.DataFrame({'Age_yrs' : [25 , 42, 37, 19, 31, 28], 'Soft_drink_Preference' : ['Coke', 'Pepsi', 'Mountain dew', 'Coke', 'Pepsi', 'Coke']})
+  from sklearn.preprocessing import LabelEncoder
+  encoder = LabelEncoder()
+  encoded_df = encoder.fit_transform(df[['Soft_drink_Preference']])
+  df['Soft_drink_Preference'] = encoded_df
+  import numpy as np
+  df.cov()
 
+  or
+
+  import pandas as pd
+  Coke = 1
+  Pepsi = 2
+  Mountain_dew = 3
+  df1 = pd.DataFrame({'Age_yrs' : [25 , 42, 37, 19, 31, 28], 'Soft_drink_Preference' : [1, 2, 3, 1, 2, 1]})
+  import numpy as np
+  df1.cov()
+
+   As the covariance is positive, it indicates that when one variable is above its mean, the other tends to be above its mean as well, and vice versa. It suggests a positive relationship between the variables.
 
 Q6. A company is interested in examining the relationship between the number of sales calls made per day
 and the number of sales made per week. The company collected data on both variables from a sample of
 30 sales representatives. Calculate the Pearson correlation coefficient between these two variables.
 
-
+  import pandas as pd
+  df = pd.DataFrame({'sales_call_hours_per_day' : [10, 12	, 8	,11	,9	,10	,12	,11	,9	,13	], 'no_of_sales_per_week' : [5, 7, 4, 6, 5, 6, 8, 7, 5, 8]})
+  import numpy as np
+  df.corr('pearson')
 
