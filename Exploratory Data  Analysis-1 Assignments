@@ -1,30 +1,89 @@
 Q1. What are the key features of the wine quality data set? Discuss the importance of each feature in predicting the quality of wine.
 
+  1. Alcohol: the amount of alcohol in wine
 
+  2. Volatile acidity: are high acetic acid in wine which leads to an unpleasant vinegar taste
+  
+  3. Sulphates: a wine additive that contributes to SO2 levels and acts as an antimicrobial and antioxidant
+  
+  4. Citric Acid: acts as a preservative to increase acidity (small quantities add freshness and flavor to wines)
+  
+  5. Total Sulfur Dioxide: is the amount of free + bound forms of SO2
+  
+  6. Density: sweeter wines have a higher density
+  
+  7. Chlorides: the amount of salt in the wine
+  
+  8. Fixed acidity: are non-volatile acids that do not evaporate readily
+  
+  9. pH: the level of acidity
+  
+  10. Free Sulfur Dioxide: it prevents microbial growth and the oxidation of wine
+  
+  11. Residual sugar: is the amount of sugar remaining after fermentation stops. The key is to have a perfect balance between — sweetness and sourness (wines > 45g/ltrs are sweet)
+
+
+
+  I found the popularity of the medium/average values of quality: 5 and 6. Considering the dependent variable’s transformation, I found out that our data is normally distributed.
+  It can be seen that most red wines’ pH levels are always between 3–4 and chlorides — the amount of salt is most prevalent at level 0.1. 
+  Three different patterns can be observed. First, there are positive relationships between quality and critic.acid, alcohol, and sulphates. Even though wines with a higher level of alcohol may make them less popular, they should be highly rated in quality. Second, there are negative relationships between quality and volatile.acidity, density, and pH. It is reasonable that less sweet wines and a lower level of acidity are favored in quality testings. 
+  Last, these independent variables show no significant relationship with quality: residual.sugar, chlorides, and total.sulfur.dioxide.
+  To dive deep into relationships within independent variables and with quality, I built different three-dimensional plots. When inspecting the two variables, alcohol and volatile.acidity with quality, we can see that with red wines’ alcohol level between 9% to 12%, the level of volatile acidity decreases as the wines’ alcohol level increases. 
+  For higher alcohol content (>12% ), the pattern reverses, implying high-quality wines’ popularity.
+
+  From the visualisation we derieve that:
+
+    Features fixed acidity and residual sugar might not give any specification to classify/predict the quality.
+    Quality increases with
+    decrease in volatile acidity.
+    increase in citric acid.
+    decrease in chlorides.
+    decrease in pH.
+    increase in sulphates.
+    increase in alcohol.
+    Free sulfur dioxide alone will not be able to predict the quality.
+    Total sulfur dioxide alone will not be able to predict the quality.
 
 Q2. How did you handle missing data in the wine quality data set during the feature engineering process?
 Discuss the advantages and disadvantages of different imputation techniques.
 
-
+  Let’s impute the missing values by means as the data present in the different columns are continuous values.
+  imputations based on additional information can yield unbiased estimates while complete case analysis does not, so imputation has the largest potential value when missing data is not ignorable and information from outside the model is available for the imputations.
+  Requires a lot of data to be accurate. Can require the target (outcome) variable. Need to split data for imputation into train and test (this might be difficult depending on the amount and structure of your missing data)
 
 Q3. What are the key factors that affect students' performance in exams? How would you go about
 analyzing these factors using statistical techniques?
 
-
+We see that gender, parental level of education and lunch can affect the student's performance. We can calculate the total score of each student and then we can do the EDA and we can draw the conclusions based on the visualization techniques.
+We can plot the histplot and pairplot and heatmap to analyse the data.
 
 Q4. Describe the process of feature engineering in the context of the student performance data set. How
 did you select and transform the variables for your model?
 
-
+We can calculate the total score of each student and then we can do the EDA and we can draw the conclusions based on the visualization techniques. We can plot the histplot and pairplot and heatmap to analyse the data.
 
 Q5. Load the wine quality data set and perform exploratory data analysis (EDA) to identify the distribution
 of each feature. Which feature(s) exhibit non-normality, and what transformations could be applied to
 these features to improve normality?
 
+Identifying non-normality: Observe the generated histograms to determine the distribution of each feature. Look for signs of non-normality, such as skewedness or heavy tails. Features that exhibit these characteristics may indicate non-normality.
+
+Transformation for improving normality: If you find features that are non-normal, you can apply various transformations to improve their normality. Here are a few common transformations:
+
+Log transformation: Take the logarithm of the feature values. This transformation is useful for positively skewed data, as it compresses larger values and spreads out smaller ones.
+Square root transformation: Take the square root of the feature values. This transformation is similar to the log transformation but is useful for reducing right skewness in data.
+Box-Cox transformation: The Box-Cox transformation is a more flexible transformation that can handle both positively and negatively skewed data. It attempts to find the optimal transformation parameter lambda (λ) to achieve the closest approximation to normality. 
 
 
 Q6. Using the wine quality data set, perform principal component analysis (PCA) to reduce the number of
 features. What is the minimum number of principal components required to explain 90% of the variance in
 the data?
 
+Separate the features from the target variable (quality) and standardize the feature values. Standardization is necessary for PCA as it ensures all features have zero mean and unit variance.
+Apply PCA to the standardized feature data. Set the parameter n_components to None to retain all components and let PCA calculate the maximum number of principal components.
+Obtain the explained variance ratio of each principal component. The explained variance ratio represents the proportion of the total variance explained by each principal component.
+Calculate the cumulative explained variance by summing up the explained variance ratio for each principal component in a cumulative manner.
+Find the minimum number of principal components required to explain at least 90% of the variance. This can be done by finding the index where the cumulative explained variance crosses or exceeds 0.9 (90%).
+num_components = np.argmax(cumulative_variance >= 0.9) + 1
+The variable num_components will contain the minimum number of principal components required to explain 90% of the variance in the data.
 
