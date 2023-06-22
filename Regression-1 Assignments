@@ -1,15 +1,31 @@
-Q1. Explain the difference between simple linear regression and multiple linear regression. Provide an
-example of each.
+Q1. Explain the difference between simple linear regression and multiple linear regression. Provide an example of each.
 
+    Simple Linear Regression: The association between two variables is established using a straight line in Simple Linear Regression. It tries to create a line that is as near to the data as possible by determining the slope and intercept, which define the line and reduce regression errors. There is a single x and y variable  
+    Equation: Y = mX+c 
 
+    Multiple Linear Regression: Multiple linear regressions are based on the presumption that both the dependent and independent variables, or Predictor and Target variables, have a linear relationship. There are two types of multilinear regressions: linear and nonlinear. It has one or more x variables and one or more y variables, or one dependent variable and two or more independent variables 
+    Equation: Y = m1X1+m2X2+m3X3+..c 
 
-Q2. Discuss the assumptions of linear regression. How can you check whether these assumptions hold in
-a given dataset?
+    Where, 
 
+    Y = Dependent Variable 
+    m = Slope  
+    X = Independent Variable 
+    c = Intercept 
+    
+    For instance, when we predict rent based on square feet alone that is simple linear regression. 
+    When we predict rent based on square feet and age of the building that is an example of multiple linear regression.
+    
+Q2. Discuss the assumptions of linear regression. How can you check whether these assumptions hold in a given dataset?
 
+    There are primarily five assumptions of linear regression. They are:
+    1. There is a linear relationship between the predictors (x) and the outcome (y) - We can check the linearity of the data by looking at the Residual vs Fitted plot. Ideally, this plot would not have a pattern where the red line (lowes smoother) is approximately horizontal at zero.
+    2. Predictors (x) are independent and observed with negligible error - 
+    3. Residual Errors have a mean value of zero
+    4. Residual Errors have constant variance
+    5. Residual Errors are independent from each other and predictors (x)
 
-Q3. How do you interpret the slope and intercept in a linear regression model? Provide an example using
-a real-world scenario.
+Q3. How do you interpret the slope and intercept in a linear regression model? Provide an example using a real-world scenario.
 
 
 
