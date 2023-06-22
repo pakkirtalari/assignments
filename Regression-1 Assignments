@@ -1,0 +1,36 @@
+Q1. Explain the difference between simple linear regression and multiple linear regression. Provide an
+example of each.
+
+
+
+Q2. Discuss the assumptions of linear regression. How can you check whether these assumptions hold in
+a given dataset?
+
+
+
+Q3. How do you interpret the slope and intercept in a linear regression model? Provide an example using
+a real-world scenario.
+
+
+
+Q4. Explain the concept of gradient descent. How is it used in machine learning?
+
+
+
+Q5. Describe the multiple linear regression model. How does it differ from simple linear regression?
+
+
+
+Q6. Explain the concept of multicollinearity in multiple linear regression. How can you detect and
+address this issue?
+
+
+
+Q7. Describe the polynomial regression model. How is it different from linear regression?
+
+
+
+Q8. What are the advantages and disadvantages of polynomial regression compared to linear
+regression? In what situations would you prefer to use polynomial regression?
+
+
