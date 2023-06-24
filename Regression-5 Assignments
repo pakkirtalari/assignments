@@ -1,0 +1,36 @@
+Q1. What is Elastic Net Regression and how does it differ from other regression techniques?
+
+
+
+Q2. How do you choose the optimal values of the regularization parameters for Elastic Net Regression?
+
+
+
+Q3. What are the advantages and disadvantages of Elastic Net Regression?
+
+
+
+Q4. What are some common use cases for Elastic Net Regression?
+
+
+
+Q5. How do you interpret the coefficients in Elastic Net Regression?
+
+
+
+Q6. How do you handle missing values when using Elastic Net Regression?
+
+
+
+
+Q7. How do you use Elastic Net Regression for feature selection?
+
+
+
+Q8. How do you pickle and unpickle a trained Elastic Net Regression model in Python?
+
+
+
+Q9. What is the purpose of pickling a model in machine learning?
+
+
