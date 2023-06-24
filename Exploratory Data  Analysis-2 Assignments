@@ -3,7 +3,7 @@ Flight Price:
 Q1. Load the flight price dataset and examine its dimensions. How many rows and columns does the
 dataset have?
 
-
+(10683, 17)
 
 Q2. What is the distribution of flight prices in the dataset? Create a histogram to visualize the
 distribution.
