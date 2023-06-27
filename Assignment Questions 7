@@ -1,0 +1,151 @@
+Question 1
+
+Given two strings s and t, *determine if they are isomorphic*.
+
+Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+
+def isIsomorphic(s, t):
+    if len(s) != len(t):
+        return False
+
+    char_map_s = {}
+    char_map_t = {}
+
+    for i in range(len(s)):
+        if s[i] in char_map_s:
+            if char_map_s[s[i]] != t[i]:
+                return False
+        elif t[i] in char_map_t:
+            if char_map_t[t[i]] != s[i]:
+                return False
+        else:
+            char_map_s[s[i]] = t[i]
+            char_map_t[t[i]] = s[i]
+
+    return True
+
+Question 2
+
+Given a string num which represents an integer, return true *if* num *is a **strobogrammatic number***.
+
+A **strobogrammatic number** is a number that looks the same when rotated 180 degrees (looked at upside down).
+
+def isStrobogrammatic(num):
+    strobogrammatic_map = {'0': '0', '1': '1', '6': '9', '8': '8', '9': '6'}
+    left, right = 0, len(num) - 1
+
+    while left <= right:
+        if num[left] not in strobogrammatic_map or num[right] not in strobogrammatic_map:
+            return False
+        if num[left] != strobogrammatic_map[num[right]]:
+            return False
+        left += 1
+        right -= 1
+
+    return True
+
+Question 3
+
+Given two non-negative integers, num1 and num2 represented as string, return *the sum of* num1 *and* num2 *as a string*.
+
+You must solve the problem without using any built-in library for handling large integers (such as BigInteger). You must also not convert the inputs to integers directly.
+
+def addStrings(num1, num2):
+    result = ""
+    carry = 0
+    i = len(num1) - 1
+    j = len(num2) - 1
+
+    while i >= 0 or j >= 0:
+        digit1 = int(num1[i]) if i >= 0 else 0
+        digit2 = int(num2[j]) if j >= 0 else 0
+
+        current_sum = digit1 + digit2 + carry
+        result += str(current_sum % 10)
+        carry = current_sum // 10
+
+        i -= 1
+        j -= 1
+
+    if carry != 0:
+        result += str(carry)
+
+    return result[::-1]
+
+Question 4
+
+Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+
+def reverseWords(s):
+    words = s.split()
+    for i in range(len(words)):
+        words[i] = words[i][::-1]
+    result = ' '.join(words)
+    return result
+
+Question 5
+
+Given a string s and an integer k, reverse the first k characters for every 2k characters counting from the start of the string.
+
+If there are fewer than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and leave the other as original.
+
+def reverseStr(s, k):
+    chars = list(s)
+    i = 0
+    while i < len(chars):
+        chars[i:i+k] = chars[i:i+k][::-1]
+        i += 2 * k
+    result = ''.join(chars)
+    return result
+
+Question 6
+
+Given two strings s and goal, return true *if and only if* s *can become* goal *after some number of **shifts** on* s.
+
+A **shift** on s consists of moving the leftmost character of s to the rightmost position.
+
+- For example, if s = "abcde", then it will be "bcdea" after one shift.
+
+def canShift(s, goal):
+    s2 = s + s
+    return goal in s2
+
+Question 7
+
+Given two strings s and t, return true *if they are equal when both are typed into empty text editors*. '#' means a backspace character.
+
+Note that after backspacing an empty text, the text will continue empty.
+
+def processString(s):
+    stack = []
+    for char in s:
+        if char != '#':
+            stack.append(char)
+        elif stack:
+            stack.pop()
+    return ''.join(stack)
+
+def backspaceCompare(s, t):
+    processed_s = processString(s)
+    processed_t = processString(t)
+    return processed_s == processed_t
+
+Question 8
+
+You are given an array coordinates, coordinates[i] = [x, y], where [x, y] represents the coordinate of a point. Check if these points make a straight line in the XY plane.
+
+def checkStraightLine(coordinates):
+    x1, y1 = coordinates[0]
+    x2, y2 = coordinates[1]
+    for i in range(2, len(coordinates)):
+        x, y = coordinates[i]
+        if (y2 - y1) * (x - x1) != (x2 - x1) * (y - y1):
+            return False
+    return True
+
+
+
+
+
