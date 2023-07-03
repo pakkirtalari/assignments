@@ -1,0 +1,45 @@
+Q1. What is the purpose of grid search cv in machine learning, and how does it work?
+
+
+
+Q2. Describe the difference between grid search cv and randomize search cv, and when might you choose one over the other?
+
+
+
+Q3. What is data leakage, and why is it a problem in machine learning? Provide an example.
+
+
+
+Q4. How can you prevent data leakage when building a machine learning model?
+
+
+
+Q5. What is a confusion matrix, and what does it tell you about the performance of a classification model?
+
+
+
+Q6. Explain the difference between precision and recall in the context of a confusion matrix.
+
+
+
+
+Q7. How can you interpret a confusion matrix to determine which types of errors your model is making?
+
+
+
+
+Q8. What are some common metrics that can be derived from a confusion matrix, and how are they calculated?
+
+
+
+
+Q9. What is the relationship between the accuracy of a model and the values in its confusion matrix?
+
+
+
+
+Q10. How can you use a confusion matrix to identify potential biases or limitations in your machine learning model?
+
+
+
+
