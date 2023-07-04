@@ -1,0 +1,36 @@
+Q1. Explain the concept of precision and recall in the context of classification models.
+
+
+
+Q2. What is the F1 score and how is it calculated? How is it different from precision and recall?
+
+
+
+Q3. What is ROC and AUC, and how are they used to evaluate the performance of classification models?
+
+
+
+Q4. How do you choose the best metric to evaluate the performance of a classification model?
+    What is multiclass classification and how is it different from binary classification?
+
+
+
+Q5. Explain how logistic regression can be used for multiclass classification.
+
+
+
+Q6. Describe the steps involved in an end-to-end project for multiclass classification.
+
+
+
+Q7. What is model deployment and why is it important?
+
+
+
+Q8. Explain how multi-cloud platforms are used for model deployment.
+
+
+
+Q9. Discuss the benefits and challenges of deploying machine learning models in a multi-cloud environment.
+
+
